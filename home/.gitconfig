@@ -1,0 +1,55 @@
+[instaweb]
+	httpd = webrick
+	
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	autocrlf = input
+	safecrlf = true
+	
+[merge]
+	tool = opendiff
+[branch]
+	autosetupmerge = true
+[push]
+    default = tracking
+[user]
+	email = mgeraci@gmail.com
+	name = Michael P. Geraci
+
+[alias]
+  # All the aliases relate to commits. Note that
+  # they are grouped by common prefixes, so I don't
+  # confuse what I want done by accident.
+  c = !git add -A && git commit -m 
+
+  # amending the previous commit
+  ca = commit --amend -m
+  caa = commit -a --amend -C HEAD
+
+  # reset
+  ## soft resets
+  r = reset
+  r1 = reset HEAD^
+  r2 = reset HEAD^^
+  ## hard resets
+  rh = reset --hard
+  rh1 = reset HEAD^ --hard
+  rh2 = reset HEAD^^ --hard
+
+  # shortcuts for commands
+  s = status
+  d = diff
+  a = add
+  co = checkout
+  b = branch
+  l = log
+  f = fetch
+  r = reset
+  ps = push
+  pl = pull
+  
+  staging = push staging develop:master
