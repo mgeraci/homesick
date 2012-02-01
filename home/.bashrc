@@ -195,7 +195,3 @@ export PATH="/usr/local/git/bin:/usr/local/ruby/bin:$PATH"
 alias ath='ssh -i ~/.ssh/thealmanac.ath.cx thealmanac@thealmanac.ath.cx'
 
 complete -C ~/bin/tablete -o default rake
-
-GEA_DIR="~/Venture/reducify"
-
-if [[ -s ~/Dropbox/reducify/code/etc/bash_helpers ]] ; then source ~/Dropbox/reducify/code/etc/bash_helpers ; fi
