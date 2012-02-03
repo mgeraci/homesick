@@ -17,11 +17,11 @@ source ~/.bashrc
 
 
 # Hello Messsage --------------------------------------------------
-echo -e "Kernel Information: " `uname -smr`
-echo -e "${COLOR_BROWN}`bash --version`"
-echo -ne "${COLOR_GRAY}Uptime: "; uptime
-echo -ne "${COLOR_GRAY}Server time is: "; date
-echo "> Code like the wind <"
+# echo -e "Kernel Information: " `uname -smr`
+# echo -e "${COLOR_BROWN}`bash --version`"
+# echo -ne "${COLOR_GRAY}Uptime: "; uptime
+# echo -ne "${COLOR_GRAY}Server time is: "; date
+echo -e "${COLOR_BROWN}Code like the wind";
 
 
 
