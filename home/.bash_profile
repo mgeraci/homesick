@@ -14,6 +14,8 @@ fi
 # Load in .bashrc -------------------------------------------------
 source ~/.bashrc
 
+# Git tab completion ----------------------------------------------
+source ~/.git-completion.bash
 
 
 # Hello Messsage --------------------------------------------------
