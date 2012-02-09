@@ -1,22 +1,19 @@
 # See following for more information: http://www.infinitered.com/blog/?p=19
 
-
 # Path ------------------------------------------------------------
 export PATH=/usr/local/share/npm/bin:/usr/local/mysql/bin:$PATH  # OS-X Specific, with MacPorts and MySQL installed
 export NODE_PATH=/usr/local/lib/node:$NODE_PATH
 
+# add your bin folder to the path, if you have it.  It's a good place to add all your scripts
 if [ -d ~/bin ]; then
-	export PATH=:~/bin:$PATH  # add your bin folder to the path, if you have it.  It's a good place to add all your scripts
+	export PATH=:~/bin:$PATH
 fi
-
-
 
 # Load in .bashrc -------------------------------------------------
 source ~/.bashrc
 
 # Git tab completion ----------------------------------------------
 source ~/.git-completion.bash
-
 
 # Hello Messsage --------------------------------------------------
 # echo -e "Kernel Information: " `uname -smr`
@@ -25,7 +22,11 @@ source ~/.git-completion.bash
 # echo -ne "${COLOR_GRAY}Server time is: "; date
 echo -e "${COLOR_BROWN}Code like the wind";
 
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Notes: ----------------------------------------------------------
 # When you start an interactive shell (log in, open terminal or iTerm in OS X, 
@@ -41,9 +42,3 @@ echo -e "${COLOR_BROWN}Code like the wind";
 # in this order:
 #     bashrc
 #     .bashrc
-
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
