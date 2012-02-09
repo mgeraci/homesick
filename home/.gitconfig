@@ -46,7 +46,8 @@
   a = add
   co = checkout
   b = branch
-  l = log
+  # l = log
+  l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   f = fetch
   r = reset
   ps = push
