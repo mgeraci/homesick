@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo rm -rf /Library/WebServer/Documents
+sudo ln -s $PWD /Library/WebServer/Documents
