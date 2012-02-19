@@ -9,6 +9,11 @@ if [ -d ~/bin ]; then
 	export PATH=:~/bin:$PATH
 fi
 
+# add .bin folder to the path, for scripts synced with homesick
+if [ -d ~/.bin ]; then
+	export PATH=:~/.bin:$PATH
+fi
+
 # Load in .bashrc -------------------------------------------------
 source ~/.bashrc
 
