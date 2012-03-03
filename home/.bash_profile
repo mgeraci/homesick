@@ -47,3 +47,5 @@ fi
 # in this order:
 #     bashrc
 #     .bashrc
+
+export media_box='vnc://Geraci-Media-2.geracim.members.mac.com'
