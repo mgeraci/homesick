@@ -192,3 +192,4 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 export PATH="/usr/local/git/bin:/usr/local/ruby/bin:$PATH"
 
 complete -C ~/bin/tablete -o default rake
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
