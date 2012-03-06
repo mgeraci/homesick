@@ -33,6 +33,10 @@ fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+# create a variable for my media server --------------------------
+# old address: Geraci-Media-2.geracim.members.mac.com'
+export media_box='vnc://mgeraci.bounceme.net'
+
 # Notes: ----------------------------------------------------------
 # When you start an interactive shell (log in, open terminal or iTerm in OS X, 
 # or create a new tab in iTerm) the following files are read and run, in this order:
@@ -47,5 +51,3 @@ fi
 # in this order:
 #     bashrc
 #     .bashrc
-
-export media_box='vnc://Geraci-Media-2.geracim.members.mac.com'
