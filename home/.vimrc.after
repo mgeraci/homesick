@@ -1,0 +1,56 @@
+" hide the macvim toolbar
+set guioptions -=T
+
+" theme and font
+" irblack theme: https://github.com/wgibbs/vim-irblack
+:colorscheme ir_black
+set guifont=Droid_Sans_Mono:h13
+
+" reload vimrc.after when you save it
+if !exists("autocommands_loaded")
+  let autocommands_loaded = 1
+
+  au! BufWritePost .vimrc.after source %
+
+  " enable autosave
+  au FocusLost * silent! wa
+
+  " remove trailing whitespace
+  au BufWritePre * :%s/\s\+$//e
+endif
+
+" remap escape key to delete
+vnoremap <Del> <esc>
+noremap! <Del> <esc>
+
+" jumping splits
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+
+" remap ; to : in normal mod
+noremap ; :
+
+" do not use the fkeys I use for music
+noremap <F9> <nop>
+noremap <F10> <nop>
+noremap <F11> <nop>
+
+let mapleader = ','
+
+map <Leader>g :Gstatus<cr>
+map <Leader>n :NERDTreeToggle<cr>
+
+" search for open files
+map <Leader>b :CtrlPBuffer<cr>
+
+" ignore for cmd-t
+set wildmenu
+set wildmode=list:longest,list:full
+set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cache/*
+
+" No beeping
+set noerrorbells
+set novisualbell
+
