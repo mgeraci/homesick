@@ -34,7 +34,6 @@ export COLOR_GRAY='\033[1;30m'
 export COLOR_LIGHT_GRAY='\033[0;37m'alias colorslist="set | egrep 'COLOR_\w*'"  # Lists all the colors
 
 
-
 # Misc -------------------------------------------------------------
 export HISTCONTROL=ignoredups
 shopt -s checkwinsize # After each command, checks the windows size and changes lines and columns
@@ -53,10 +52,6 @@ fi
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ \[\1\]/'
 }
-
-# path prompt
-# export PS1="\h:\w\$(parse_git_branch)\$ "
-# end append branch name when you're in a git directory
 
 
 # Prompts ----------------------------------------------------------
@@ -141,46 +136,6 @@ save (){
 source ~/.dirs  # Initialization for the above 'save' facility: source the .sdirs file
 shopt -s cdable_vars # set the bash option so that no '$' is required when using the above facility
 
-
-# Subversion & Diff ------------------------------------------------
-export SV_USER='juser'  # Change this to your username that you normally use on subversion (only if it is different from your logged in name)
-export SVN_EDITOR='${EDITOR}'
-
-alias svshowcommands="echo -e '${COLOR_BROWN}Available commands: 
-   ${COLOR_GREEN}sv
-   ${COLOR_GREEN}sv${COLOR_NC}help
-   ${COLOR_GREEN}sv${COLOR_NC}import    ${COLOR_GRAY}Example: import ~/projects/my_local_folder http://svn.foo.com/bar
-   ${COLOR_GREEN}sv${COLOR_NC}checkout  ${COLOR_GRAY}Example: svcheckout http://svn.foo.com/bar
-   ${COLOR_GREEN}sv${COLOR_NC}status    
-   ${COLOR_GREEN}sv${COLOR_NC}status${COLOR_GREEN}on${COLOR_NC}server
-   ${COLOR_GREEN}sv${COLOR_NC}add       ${COLOR_GRAY}Example: svadd your_file
-   ${COLOR_GREEN}sv${COLOR_NC}add${COLOR_GREEN}all${COLOR_NC}    ${COLOR_GRAY}Note: adds all files not in repository [recursively]
-   ${COLOR_GREEN}sv${COLOR_NC}delete    ${COLOR_GRAY}Example: svdelete your_file
-   ${COLOR_GREEN}sv${COLOR_NC}diff      ${COLOR_GRAY}Example: svdiff your_file
-   ${COLOR_GREEN}sv${COLOR_NC}commit    ${COLOR_GRAY}Example: svcommit
-   ${COLOR_GREEN}sv${COLOR_NC}update    ${COLOR_GRAY}Example: svupdate
-   ${COLOR_GREEN}sv${COLOR_NC}get${COLOR_GREEN}info${COLOR_NC}   ${COLOR_GRAY}Example: svgetinfo your_file
-   ${COLOR_GREEN}sv${COLOR_NC}blame     ${COLOR_GRAY}Example: svblame your_file
-'"
-   
-alias sv='svn --username ${SV_USER}'
-alias svimport='sv import'
-alias svcheckout='sv checkout'
-alias svstatus='sv status'
-alias svupdate='sv update'
-alias svstatusonserver='sv status --show-updates' # Show status here and on the server
-alias svcommit='sv commit'
-alias svadd='svn add'
-alias svaddall='svn status | grep "^\?" | awk "{print \$2}" | xargs svn add'
-alias svdelete='sv delete'
-alias svhelp='svn help' 
-alias svblame='sv blame'
-alias svdiff='sv diff'
-
-svgetinfo (){
-  sv info $@
-sv log $@
-}
 
 alias specc='spec -c -f n'
 
