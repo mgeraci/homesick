@@ -32,7 +32,7 @@ noremap <C-k> <C-w>k
 " remap ; to : in normal mod
 noremap ; :
 
-" do not use the fkeys I use for music
+" do not use the fkeys I use for itunes
 noremap <F9> <nop>
 noremap <F10> <nop>
 noremap <F11> <nop>
