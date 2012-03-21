@@ -32,10 +32,12 @@ noremap <C-k> <C-w>k
 " remap ; to : in normal mod
 noremap ; :
 
+map <Leader><Leader> :ZoomWin<cr>
+
 " do not use the fkeys I use for itunes
-noremap <F9> <nop>
-noremap <F10> <nop>
-noremap <F11> <nop>
+imap <F9> <nop>
+imap <F10> <nop>
+imap <F11> <nop>
 
 let mapleader = ','
 
@@ -53,4 +55,3 @@ set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cach
 " No beeping
 set noerrorbells
 set novisualbell
-
