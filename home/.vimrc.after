@@ -28,6 +28,10 @@ noremap <C-h> <C-w>h
 noremap <C-l> <C-w>l
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
+imap <C-h> <esc><C-w>h
+imap <C-l> <esc><C-w>l
+imap <C-j> <esc><C-w>j
+imap <C-k> <esc><C-w>k
 
 " remap ; to : in normal mod
 noremap ; :
@@ -55,3 +59,9 @@ set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cach
 " No beeping
 set noerrorbells
 set novisualbell
+
+" disable autowrapping
+set nowrap
+
+" list disables linebreak
+set nolist
