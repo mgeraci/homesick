@@ -69,3 +69,6 @@ set nowrap
 
 " list disables linebreak
 set nolist
+
+" syntax highlighting for hamstache files
+au Bufread,BufNewFile *.hamstache set filetype=haml
