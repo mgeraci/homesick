@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd /Users/mgeraci/Web/tweetnest
+apache_root
+sudo apachectl start
+php /Users/mgeraci/Web/tweetnest/maintenance/loadtweets.php
