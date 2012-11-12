@@ -1,6 +1,6 @@
 [instaweb]
 	httpd = webrick
-	
+
 [core]
 	repositoryformatversion = 0
 	filemode = true
@@ -9,9 +9,9 @@
 	ignorecase = true
 	autocrlf = input
 	safecrlf = true
-	
+
 [merge]
-	tool = opendiff
+  tool = opendiff
 [branch]
 	autosetupmerge = true
 [push]
@@ -24,7 +24,7 @@
   # All the aliases relate to commits. Note that
   # they are grouped by common prefixes, so I don't
   # confuse what I want done by accident.
-  c = !git add -A && git commit -m 
+  c = !git add -A && git commit -m
 
   # amending the previous commit
   ca = commit --amend -m
@@ -52,5 +52,5 @@
   r = reset
   ps = push
   pl = pull
-  
+
   staging = push staging develop:master
