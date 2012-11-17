@@ -29,7 +29,7 @@ imap <C-k> <esc><C-w>k
 imap <D-j> <esc><D-j>
 imap <D-k> <esc><D-k>
 
-" remap ; to : in normal mod
+" remap ; to : in normal mode
 noremap ; :
 
 map <Leader><Leader> :ZoomWin<cr>
@@ -56,8 +56,9 @@ set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cach
 set noerrorbells
 set novisualbell
 
-" disable autowrapping
+" disable autowrapping and column breaks
 set nowrap
+set tw=0
 
 " list disables linebreak
 set nolist

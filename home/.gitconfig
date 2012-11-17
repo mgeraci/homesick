@@ -11,7 +11,7 @@
 	safecrlf = true
 
 [merge]
-	tool = opendiff
+  tool = opendiff
 [branch]
 	autosetupmerge = true
 [push]
