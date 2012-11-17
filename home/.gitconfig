@@ -1,6 +1,6 @@
 [instaweb]
 	httpd = webrick
-	
+
 [core]
 	repositoryformatversion = 0
 	filemode = true
@@ -9,22 +9,22 @@
 	ignorecase = true
 	autocrlf = input
 	safecrlf = true
-	
+
 [merge]
 	tool = opendiff
 [branch]
 	autosetupmerge = true
 [push]
-    default = tracking
+  default = tracking
 [user]
-	email = mgeraci@gmail.com
+	email = me@mgeraci.com
 	name = Michael P. Geraci
 
 [alias]
   # All the aliases relate to commits. Note that
   # they are grouped by common prefixes, so I don't
   # confuse what I want done by accident.
-  c = !git add -A && git commit -m 
+  c = !git add -A && git commit -m
 
   # amending the previous commit
   ca = commit --amend -m
@@ -52,5 +52,5 @@
   r = reset
   ps = push
   pl = pull
-  
+
   staging = push staging develop:master
