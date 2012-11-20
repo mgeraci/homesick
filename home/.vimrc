@@ -114,5 +114,5 @@ set nolist
 " just set as haml
 au Bufread,BufNewFile *.hamstache set filetype=haml
 
-" fugitive github domain?
+" fugitive github domain
 let g:fugitive_github_domains = ['https://github.com']
