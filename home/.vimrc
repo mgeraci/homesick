@@ -22,6 +22,12 @@ endif
 :colorscheme ir_black
 set guifont=Droid_Sans_Mono:h13
 
+" powerline
+" use patched font
+let g:Powerline_symbols = 'fancy'
+" always show statusline
+set laststatus=2
+
 " tab indetation
 set expandtab
 set shiftwidth=2
@@ -40,10 +46,6 @@ imap <C-h> <esc><C-w>h
 imap <C-l> <esc><C-w>l
 imap <C-j> <esc><C-w>j
 imap <C-k> <esc><C-w>k
-
-" escape insert mode to move lines up and down
-"imap <D-j> <esc><D-j>
-"imap <D-k> <esc><D-k>
 
 " remap ; to : in normal mode
 noremap ; :
