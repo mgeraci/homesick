@@ -1,1 +1,0 @@
-/Users/mgeraci/.vim/janus/vim/gvimrc
