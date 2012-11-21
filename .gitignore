@@ -1,2 +1,3 @@
 **/*.swp
+**/.netrwhist
 home/.vim/.netrwhist
