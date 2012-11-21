@@ -21,7 +21,11 @@ autocmd BufLeave,FocusLost * silent! wall
 
 " theme and font
 " irblack theme: https://github.com/wgibbs/vim-irblack
-:colorscheme ir_black
+set t_Co=256
+set background=dark
+colorscheme ir_black
+syntax on
+syntax enable
 set guifont=Droid_Sans_Mono:h13
 
 " powerline
