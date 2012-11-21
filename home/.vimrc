@@ -16,6 +16,8 @@ if !exists("autocommands_loaded")
   au BufWritePre * :%s/\s\+$//e
 endif
 
+" enable autosave
+autocmd BufLeave,FocusLost * silent! wall
 
 " theme and font
 " irblack theme: https://github.com/wgibbs/vim-irblack
@@ -86,8 +88,8 @@ nmap <leader>L mQgewvu`Q
 
 " indenting or outdenting
 " while keeping the original selection in visual mode
-vmap <C-O>. >gv
-vmap <C-Y>m <gv
+vmap <C-O> >gv
+vmap <C-Y> <gv
 
 nmap <C-O> >>
 nmap <C-Y> <<
