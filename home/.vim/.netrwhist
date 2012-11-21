@@ -1,4 +1,4 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =2
 let g:netrw_dirhist_1='/Users/mgeraci/dtime_item'
-let g:netrw_dirhist_2='/Users/mgeraci/.oh-my-zsh'
+let g:netrw_dirhist_2='/Users/mgeraci/Web/pumptrain'
