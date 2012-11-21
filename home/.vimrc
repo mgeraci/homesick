@@ -127,3 +127,6 @@ au Bufread,BufNewFile *.hamstache set filetype=haml
 
 " fugitive github domain
 let g:fugitive_github_domains = ['https://github.com']
+
+" highlight search
+set hlsearch
