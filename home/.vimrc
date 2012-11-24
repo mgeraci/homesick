@@ -130,3 +130,6 @@ let g:fugitive_github_domains = ['https://github.com']
 
 " highlight search
 set hlsearch
+
+" line numbers
+ set number
