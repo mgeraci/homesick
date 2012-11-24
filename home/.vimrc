@@ -16,10 +16,16 @@ if !exists("autocommands_loaded")
   au BufWritePre * :%s/\s\+$//e
 endif
 
+" enable autosave
+autocmd BufLeave,FocusLost * silent! wall
 
 " theme and font
 " irblack theme: https://github.com/wgibbs/vim-irblack
-:colorscheme ir_black
+set t_Co=256
+set background=dark
+colorscheme ir_black
+syntax on
+syntax enable
 set guifont=Droid_Sans_Mono:h13
 
 " powerline
@@ -80,28 +86,33 @@ nmap <leader>l mQviwu`Q
 nmap <leader>U mQgewvU`Q
 nmap <leader>L mQgewvu`Q
 
+
+" Moving text around (indent and outdent, bubbling),
+" uses y-u-i-o, similar to h-j-k-l but up a row
+
 " indenting or outdenting
 " while keeping the original selection in visual mode
-vmap <leader>. >gv
-vmap <leader>m <gv
+vmap <C-O> >gv
+vmap <C-Y> <gv
 
-nmap <leader>. >>
-nmap <leader>m <<
+nmap <C-O> >>
+nmap <C-Y> <<
 
-omap <leader>. >>
-omap <leader>m <<
+omap <C-O> >>
+omap <C-Y> <<
 
-imap <leader>. <Esc>>>i
-imap <leader>m <Esc><<i
+imap <C-O> <Esc>>>i
+imap <C-Y> <Esc><<i
 
 " Text bubbling
 " Bubble single lines
-nmap <leader>k [e
-nmap <leader>j ]e
+nmap <C-U> ]e
+nmap <C-I> [e
 
 " Bubble multiple lines
-vmap <leader>k [egv
-vmap <leader>j ]egv
+vmap <C-U> ]egv
+vmap <C-I> [egv
+
 
 " disable autowrapping and column breaks
 set nowrap
@@ -116,3 +127,6 @@ au Bufread,BufNewFile *.hamstache set filetype=haml
 
 " fugitive github domain
 let g:fugitive_github_domains = ['https://github.com']
+
+" highlight search
+set hlsearch
