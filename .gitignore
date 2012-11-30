@@ -1,6 +1,6 @@
 **/.*.swp
 **/.*.netrwhist
 home/.vim/.netrwhist
-home/.vim/backup/**
-home/.vim/swp/**
-home/.vim/undo/**
+home/.vim/backup/**/*
+home/.vim/swp/**/*
+home/.vim/undo/**/*
