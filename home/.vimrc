@@ -132,4 +132,12 @@ let g:fugitive_github_domains = ['https://github.com']
 set hlsearch
 
 " line numbers
- set number
+set number
+
+" move vim's temporary files
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swp//
+
+" undo files
+set undofile
+set undodir=~/.vim/tmp/undo//
