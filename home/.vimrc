@@ -141,3 +141,7 @@ set directory=~/.vim/tmp/swp//
 " undo files
 set undofile
 set undodir=~/.vim/tmp/undo//
+
+" case for search
+set ignorecase
+set smartcase
