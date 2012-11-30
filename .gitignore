@@ -1,5 +1,5 @@
-*.swp
-*.netrwhist
+**/.*.swp
+**/.*.netrwhist
 home/.vim/.netrwhist
 home/.vim/backup/**
 home/.vim/swp/**
