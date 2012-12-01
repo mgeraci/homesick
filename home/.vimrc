@@ -26,7 +26,8 @@ set background=dark
 colorscheme ir_black
 syntax on
 syntax enable
-set guifont=Droid_Sans_Mono:h13
+" set the font in iterm preferences, but this would be for guis
+"set guifont=Droid_Sans_Mono_for_Powerline:h13
 
 " powerline
 " use patched font
