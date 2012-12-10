@@ -126,6 +126,10 @@ set nolist
 " just set as haml
 au Bufread,BufNewFile *.hamstache set filetype=haml
 
+" syntax highlighting for toffee files
+" just set as coffee
+au Bufread,BufNewFile *.toffee set filetype=coffee
+
 " fugitive github domain
 let g:fugitive_github_domains = ['https://github.com']
 
