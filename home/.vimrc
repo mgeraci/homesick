@@ -128,7 +128,8 @@ au Bufread,BufNewFile *.hamstache set filetype=haml
 
 " syntax highlighting for toffee files
 " just set as coffee
-au Bufread,BufNewFile *.toffee set filetype=coffee
+"au Bufread,BufNewFile *.toffee set filetype=coffee
+autocmd BufNewFile,BufRead *.toffee set filetype=toffee
 
 " fugitive github domain
 let g:fugitive_github_domains = ['https://github.com']

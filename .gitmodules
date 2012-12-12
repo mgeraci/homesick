@@ -61,3 +61,9 @@
 [submodule "home/.vim/bundle/surround"]
 	path = home/.vim/bundle/surround
 	url = git@github.com:tpope/vim-surround.git
+[submodule "home/.vim/bundle/closetag"]
+	path = home/.vim/bundle/closetag
+	url = git@github.com:docunext/closetag.vim.git
+[submodule "home/.vim/bundle/toffee"]
+	path = home/.vim/bundle/toffee
+	url = git@github.com:lchi/vim-toffee.git
