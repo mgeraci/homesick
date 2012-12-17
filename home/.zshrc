@@ -56,6 +56,10 @@ alias rm="rm -i"
 
 export media_box='vnc://mgeraci.bounceme.net'
 
+# stop trying to correct some spellings
+alias consular="nocorrect consular"
+alias irssi="nocorrect irssi"
+
 # -----------------------
 # RVM Support
 # -----------------------
