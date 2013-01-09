@@ -1,24 +1,28 @@
 [instaweb]
-	httpd = webrick
+  httpd = webrick
 
 [core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	logallrefupdates = true
-	ignorecase = true
-	autocrlf = input
-	safecrlf = true
+  repositoryformatversion = 0
+  filemode = true
+  bare = false
+  logallrefupdates = true
+  ignorecase = true
+  autocrlf = false
+  safecrlf = true
+	editor = /usr/bin/vim
 
 [merge]
   tool = opendiff
+
 [branch]
-	autosetupmerge = true
+  autosetupmerge = true
+
 [push]
   default = tracking
+
 [user]
-	email = me@mgeraci.com
-	name = Michael P. Geraci
+  email = me@mgeraci.com
+  name = Michael P. Geraci
 
 [alias]
   # All the aliases relate to commits. Note that
