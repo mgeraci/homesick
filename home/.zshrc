@@ -59,6 +59,7 @@ export media_box='vnc://mgeraci.bounceme.net'
 # stop trying to correct some spellings
 alias consular="nocorrect consular"
 alias irssi="nocorrect irssi"
+alias meteor="nocorrect meteor"
 
 # -----------------------
 # RVM Support
