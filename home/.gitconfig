@@ -58,3 +58,6 @@
   pl = pull
 
   staging = push staging develop:master
+
+[color]
+  ui = true
