@@ -30,6 +30,7 @@ syntax enable
 "set guifont=Droid_Sans_Mono_for_Powerline:h13
 
 " powerline
+"""""""""""
 " use patched font
 let g:Powerline_symbols = 'fancy'
 " always show statusline
@@ -66,6 +67,8 @@ let mapleader = ','
 
 map <Leader>g :Gstatus<cr>
 map <Leader>n :NERDTreeToggle<cr>
+map <Leader>p :set paste<cr>
+map <Leader>np :set nopaste<cr>
 
 " textmate-style comment shortcut
 map <C-C> <Leader>ci
