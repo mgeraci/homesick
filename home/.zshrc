@@ -60,6 +60,7 @@ export media_box='vnc://mgeraci.bounceme.net'
 alias consular="nocorrect consular"
 alias irssi="nocorrect irssi"
 alias meteor="nocorrect meteor"
+alias glue="nocorrect glue"
 
 # -----------------------
 # RVM Support
