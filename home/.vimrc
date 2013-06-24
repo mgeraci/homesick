@@ -65,9 +65,10 @@ imap <F11> <nop>
 
 let mapleader = ','
 
-map <Leader>g :Gstatus<cr>
-map <Leader>n :NERDTreeToggle<cr>
-map <Leader>p :set paste<cr>
+map <Leader>g  :Gstatus<cr>
+map <Leader>n  :NERDTreeToggle<cr>
+map <Leader>nf :NERDTreeFind<cr>
+map <Leader>p  :set paste<cr>
 map <Leader>np :set nopaste<cr>
 
 " textmate-style comment shortcut
@@ -125,15 +126,6 @@ set tw=0
 " list disables linebreak
 set nolist
 
-" syntax highlighting for hamstache files
-" just set as haml
-au Bufread,BufNewFile *.hamstache set filetype=haml
-
-" syntax highlighting for toffee files
-" just set as coffee
-"au Bufread,BufNewFile *.toffee set filetype=coffee
-autocmd BufNewFile,BufRead *.toffee set filetype=toffee
-
 " fugitive github domain
 let g:fugitive_github_domains = ['https://github.com']
 
@@ -154,3 +146,18 @@ set undodir=~/.vim/tmp/undo//
 " case for search
 set ignorecase
 set smartcase
+
+
+"" Syntax highlighting for odd file types
+
+" syntax highlighting for hamstache files
+" just set as haml
+au Bufread,BufNewFile *.hamstache set filetype=haml
+
+" syntax highlighting for toffee files
+" just set as coffee
+"au Bufread,BufNewFile *.toffee set filetype=coffee
+autocmd BufNewFile,BufRead *.toffee set filetype=toffee
+
+" jinja
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2 set ft=jinja
