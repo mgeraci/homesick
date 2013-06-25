@@ -1,0 +1,21 @@
+# start work on happy couple
+
+tab do
+  run "irssi"
+end
+
+tab do
+  run "cd ~/src/happycouple"
+end
+
+tab do
+  run "cd ~/src"
+  run ". hcenv/bin/activate"
+  run "cd happycouple"
+  run "python src/manage.py runserver"
+end
+
+tab do
+  run "cd ~/src/happycouple"
+  run "vim ."
+end
