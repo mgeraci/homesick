@@ -9,8 +9,10 @@ tab do
 end
 
 tab do
-  run "cd ~/src/happycouple"
-  run "scripts/sass.sh"
+  run "cd ~/src"
+  run ". hcenv/bin/activate"
+  run "cd happycouple"
+  run "python src/manage.py staticconcat --all --watch"
 end
 
 tab do
