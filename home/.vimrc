@@ -77,7 +77,7 @@ map <C-C> <Leader>ci
 " ignore for ctrl-p
 set wildmenu
 set wildmode=list:longest,list:full
-set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cache/*
+set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cache/*,*.swp,*.pyc,CACHE/*,*/CACHE/*
 
 " No beeping
 set noerrorbells
