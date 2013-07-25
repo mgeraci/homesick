@@ -5,7 +5,9 @@ tab do
 end
 
 tab do
-  run "cd ~/src/happycouple"
+  run "cd ~/src"
+  run ". hcenv/bin/activate"
+  run "cd happycouple"
 end
 
 tab do
