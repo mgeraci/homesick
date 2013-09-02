@@ -67,3 +67,6 @@
 [submodule "home/.vim/bundle/toffee"]
 	path = home/.vim/bundle/toffee
 	url = git@github.com:lchi/vim-toffee.git
+[submodule "home/.vim/bundle/vim-jinja"]
+	path = home/.vim/bundle/vim-jinja
+	url = git@github.com:lepture/vim-jinja.git
