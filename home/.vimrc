@@ -1,9 +1,9 @@
-" load in pathogen
+" load pathogen
 call pathogen#infect()
 syntax on
 filetype plugin indent on
 
-" reload vimrcwhen you save it
+" reload vimrc when you save it
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
 
@@ -12,11 +12,12 @@ if !exists("autocommands_loaded")
   " enable autosave
   au FocusLost * silent! wa
 
-  " remove trailing whitespace
+  " remove trailing whitespace on save
   au BufWritePre * :%s/\s\+$//e
 endif
 
-" enable autosave
+" save a buffer when focus is lost (switching splits,
+" or switching applications if using iTerm2)
 autocmd BufLeave,FocusLost * silent! wall
 
 " theme and font
@@ -36,12 +37,11 @@ let g:Powerline_symbols = 'fancy'
 " always show statusline
 set laststatus=2
 
-" tab indetation
-set expandtab
-set shiftwidth=2
-set softtabstop=2
+" tab indetation - use tabs, display as 2 columns
+" (good overview: http://tedlogan.com/techblog3.html)
+:set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 
-" remap escape key to delete
+" remap escape key to delete, handy on kinesis advantage
 vnoremap <Del> <esc>
 noremap! <Del> <esc>
 
@@ -55,7 +55,7 @@ imap <C-l> <esc><C-w>l
 imap <C-j> <esc><C-w>j
 imap <C-k> <esc><C-w>k
 
-" remap ; to : in normal mode
+" remap ; to : in normal mode to stop hitting shift
 noremap ; :
 
 " do not use the fkeys I use for itunes
@@ -74,7 +74,7 @@ map <Leader>np :set nopaste<cr>
 " textmate-style comment shortcut
 map <C-C> <Leader>ci
 
-" ignore for ctrl-p
+" filetypes to ignore for ctrl-p
 set wildmenu
 set wildmode=list:longest,list:full
 set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cache/*,*.swp,*.pyc,CACHE/*,*/CACHE/*
@@ -92,11 +92,12 @@ nmap <leader>U mQgewvU`Q
 nmap <leader>L mQgewvu`Q
 
 
-" Moving text around (indent and outdent, bubbling),
-" uses y-u-i-o, similar to h-j-k-l but up a row
+" Move text around (indent and outdent, bubbling)
+" using y-u-i-o (similar to h-j-k-l but up a row)
+"""""""""""""""""""""""""""""""""""""""""""""""""
 
-" indenting or outdenting
-" while keeping the original selection in visual mode
+" indenting and outdenting while keeping the
+" original selection in visual mode
 vmap <C-O> >gv
 vmap <C-Y> <gv
 
@@ -161,3 +162,9 @@ autocmd BufNewFile,BufRead *.toffee set filetype=toffee
 
 " jinja
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2 set ft=jinja
+
+" pub
+let fullpath = getcwd() . bufname("%")
+if match(fullpath, "okcontent") != -1
+	autocmd BufNewFile,BufRead *.html,*.pub,*.lib,*.dict set filetype=pub
+endif

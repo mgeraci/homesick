@@ -10,6 +10,7 @@
   autocrlf = false
   safecrlf = true
 	editor = /usr/bin/vim
+	preloadindex = true
 
 [merge]
   tool = opendiff
@@ -25,9 +26,6 @@
   name = Michael P. Geraci
 
 [alias]
-  # All the aliases relate to commits. Note that
-  # they are grouped by common prefixes, so I don't
-  # confuse what I want done by accident.
   c = !git add -A && git commit -m
 
   # amending the previous commit
@@ -50,7 +48,6 @@
   a = add
   co = checkout
   b = branch
-  # l = log
   l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   f = fetch
   r = reset
@@ -61,5 +58,6 @@
 
 [color]
   ui = true
+
 [credential]
 	helper = osxkeychain
