@@ -49,9 +49,6 @@
 [submodule "home/.vim/bundle/nodejs"]
 	path = home/.vim/bundle/nodejs
 	url = git@github.com:mmalecki/vim-node.js.git
-[submodule "home/.vim/bundle/slim"]
-	path = home/.vim/bundle/slim
-	url = git@github.com:bbommarito/vim-slim.git
 [submodule "home/.vim/bundle/ctrlp"]
 	path = home/.vim/bundle/ctrlp
 	url = git@github.com:kien/ctrlp.vim.git
