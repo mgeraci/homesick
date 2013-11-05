@@ -31,13 +31,15 @@ syntax enable
 
 " powerline
 """""""""""
+
 " use patched font
 let g:Powerline_symbols = 'fancy'
+
 " always show statusline
 set laststatus=2
 
 " tab indetation
-set expandtab
+set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 

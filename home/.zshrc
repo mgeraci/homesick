@@ -56,6 +56,11 @@ alias rm="rm -i"
 
 export media_box='vnc://mgeraci.bounceme.net'
 
+# Import OkCupid aliases file
+if [ -f ~/.okcupid_aliases ]; then
+    source ~/.okcupid_aliases
+fi
+
 # stop trying to correct some spellings
 alias consular="nocorrect consular"
 alias irssi="nocorrect irssi"
