@@ -49,8 +49,8 @@
   d = diff
   a = add
   co = checkout
+  m = merge
   b = branch
-  # l = log
   l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   f = fetch
   r = reset
