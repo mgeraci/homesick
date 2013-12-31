@@ -163,3 +163,6 @@ autocmd BufNewFile,BufRead *.toffee set filetype=toffee
 
 " jinja
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2 set ft=jinja
+
+" arduino
+au BufNewFile,BufRead *.ino set ft=c
