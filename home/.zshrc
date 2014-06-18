@@ -41,6 +41,11 @@ export media_box='vnc://mgeraci.bounceme.net'
 export devjail='mgeraci.dev.okcupid.com'
 alias dj="ssh mgeraci.dev.okcupid.com"
 
+# Import OkCupid aliases file
+if [ -f ~/.okcupid_aliases ]; then
+    source ~/.okcupid_aliases
+fi
+
 # stop trying to correct some spellings
 alias consular="nocorrect consular"
 alias irssi="nocorrect irssi"

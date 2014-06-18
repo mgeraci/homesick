@@ -113,7 +113,6 @@ alias df='df -h'
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
 
 
-
 # Editors ----------------------------------------------------------
 export EDITOR='mate -w'  # OS-X SPECIFIC - TextMate, w is to wait for TextMate window to close
 #export EDITOR='gedit'  #Linux/gnome

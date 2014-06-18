@@ -67,3 +67,6 @@
 [submodule "home/.vim/bundle/vim-jinja"]
 	path = home/.vim/bundle/vim-jinja
 	url = git@github.com:lepture/vim-jinja.git
+[submodule "home/.vim/bundle/arduino"]
+	path = home/.vim/bundle/arduino
+	url = git@github.com:tclem/vim-arduino.git

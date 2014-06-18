@@ -32,8 +32,10 @@ syntax enable
 
 " powerline
 """""""""""
+
 " use patched font
 let g:Powerline_symbols = 'fancy'
+
 " always show statusline
 set laststatus=2
 
@@ -176,3 +178,6 @@ let fullpath = getcwd() . bufname("%")
 if match(fullpath, "okcontent") != -1
 	autocmd BufNewFile,BufRead *.email,*.html,*.pub,*.lib,*.dict set filetype=pub
 endif
+
+" arduino
+au BufNewFile,BufRead *.ino set ft=c
