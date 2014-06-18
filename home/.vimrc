@@ -71,6 +71,10 @@ map <Leader>nf :NERDTreeFind<cr>
 map <Leader>p  :set paste<cr>
 map <Leader>np :set nopaste<cr>
 
+" leader-c toggles 80-column highlight
+:highlight ColorColumn ctermbg=1
+nnoremap <Leader>c :execute "set colorcolumn=".(&colorcolumn != 80 ? 80 : 0)<cr>
+
 " textmate-style comment shortcut
 map <C-C> <Leader>ci
 
@@ -78,6 +82,10 @@ map <C-C> <Leader>ci
 set wildmenu
 set wildmode=list:longest,list:full
 set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cache/*,*.swp,*.pyc,CACHE/*,*/CACHE/*
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|sql)$',
+  \ }
 
 " No beeping
 set noerrorbells
@@ -166,5 +174,5 @@ au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2 set ft=jinja
 " pub
 let fullpath = getcwd() . bufname("%")
 if match(fullpath, "okcontent") != -1
-	autocmd BufNewFile,BufRead *.html,*.pub,*.lib,*.dict set filetype=pub
+	autocmd BufNewFile,BufRead *.email,*.html,*.pub,*.lib,*.dict set filetype=pub
 endif

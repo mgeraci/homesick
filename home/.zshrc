@@ -38,7 +38,8 @@ alias rm="rm -i"
 
 # servers
 export media_box='vnc://mgeraci.bounceme.net'
-export okdev='mgeraci.dev.okcupid.com'
+export devjail='mgeraci.dev.okcupid.com'
+alias dj="ssh mgeraci.dev.okcupid.com"
 
 # stop trying to correct some spellings
 alias consular="nocorrect consular"

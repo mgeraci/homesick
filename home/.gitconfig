@@ -11,6 +11,7 @@
   safecrlf = true
 	editor = /usr/bin/vim
 	preloadindex = true
+	quotepath = false
 
 [merge]
   tool = opendiff
