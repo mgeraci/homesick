@@ -9,9 +9,10 @@
   ignorecase = true
   autocrlf = false
   safecrlf = true
-	editor = /usr/bin/vim
-	preloadindex = true
-	quotepath = false
+  editor = /usr/bin/vim
+  preloadindex = true
+  quotepath = false
+  mergeoptions = --no-edit
 
 [merge]
   tool = opendiff
