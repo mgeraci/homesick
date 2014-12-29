@@ -90,7 +90,7 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|sql)$',
   \ }
-let g:ctrlp_working_path_mode = 'ca'
+let g:ctrlp_working_path_mode = 'ra'
 
 " No beeping
 set noerrorbells
