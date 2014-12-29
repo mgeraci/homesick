@@ -9,7 +9,10 @@
   ignorecase = true
   autocrlf = false
   safecrlf = true
-	editor = /usr/bin/vim
+  editor = /usr/bin/vim
+  preloadindex = true
+  quotepath = false
+  mergeoptions = --no-edit
 
 [merge]
   tool = opendiff
@@ -25,9 +28,6 @@
   name = Michael P. Geraci
 
 [alias]
-  # All the aliases relate to commits. Note that
-  # they are grouped by common prefixes, so I don't
-  # confuse what I want done by accident.
   c = !git add -A && git commit -m
 
   # amending the previous commit
@@ -61,5 +61,6 @@
 
 [color]
   ui = true
+
 [credential]
 	helper = osxkeychain
