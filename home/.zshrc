@@ -54,8 +54,6 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 
-export media_box='vnc://mgeraci.bounceme.net'
-
 # Import OkCupid aliases file
 if [ -f ~/.okcupid_aliases ]; then
     source ~/.okcupid_aliases
@@ -67,11 +65,14 @@ alias irssi="nocorrect irssi"
 alias meteor="nocorrect meteor"
 alias glue="nocorrect glue"
 
-# -----------------------
 # RVM Support
-# -----------------------
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
-# Customize to your needs...
+# Customize path
 export PATH=/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin::/Users/mgeraci/.bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/mgeraci/.rvm/bin:/Users/mgeraci/local/bin
 export NODE_PATH="$HOME/local/lib/node_modules/"
+
+# Python virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
+source /usr/local/bin/virtualenvwrapper.sh

@@ -1,7 +1,9 @@
 " load in pathogen
 call pathogen#infect()
 syntax on
-filetype plugin indent on
+filetype plugin on
+filetype indent on
+set autoindent
 
 " reload vimrcwhen you save it
 if !exists("autocommands_loaded")
