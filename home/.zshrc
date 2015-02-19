@@ -31,6 +31,12 @@ save (){
 source ~/.dirs  # Initialization for the above 'save' facility: source the .sdirs file
 # end Save and cd into directories
 
+# kill oh-my-zsh's git prompt
+function git_prompt_info() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
+}
+
 # ask first
 alias cp="cp -i"
 alias mv="mv -i"
@@ -54,10 +60,12 @@ alias glue="nocorrect glue"
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
 # Python virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
-source /usr/local/bin/virtualenvwrapper.sh
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+	export WORKON_HOME=$HOME/.virtualenvs
+	export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
+	source /usr/local/bin/virtualenvwrapper.sh
+	export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
+fi
 
 # Path
 export PATH=/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin::/Users/mgeraci/.bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/mgeraci/.rvm/bin:/Users/mgeraci/local/bin
