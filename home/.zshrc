@@ -37,8 +37,6 @@ alias mv="mv -i"
 alias rm="rm -i"
 
 # servers
-export media_box='vnc://mgeraci.bounceme.net'
-export devjail='mgeraci.dev.okcupid.com'
 alias dj="ssh mgeraci.dev.okcupid.com"
 
 # Import OkCupid aliases file
@@ -52,10 +50,14 @@ alias irssi="nocorrect irssi"
 alias meteor="nocorrect meteor"
 alias glue="nocorrect glue"
 
-# -----------------------
 # RVM Support
-# -----------------------
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
+
+# Python virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
+source /usr/local/bin/virtualenvwrapper.sh
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
 
 # Path
 export PATH=/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin::/Users/mgeraci/.bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/mgeraci/.rvm/bin:/Users/mgeraci/local/bin

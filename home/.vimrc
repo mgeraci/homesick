@@ -1,7 +1,9 @@
 " load pathogen
 call pathogen#infect()
 syntax on
-filetype plugin indent on
+filetype plugin on
+filetype indent on
+set autoindent
 
 " reload vimrc when you save it
 if !exists("autocommands_loaded")
@@ -78,14 +80,15 @@ nnoremap <Leader>c :execute "set colorcolumn=".(&colorcolumn != 80 ? 80 : 0)<cr>
 map <C-C> <Leader>ci
 
 " ctrl-p settings
-"set wildmenu
-"set wildmode=list:longest,list:full
-"set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cache/*,*.swp,*.pyc,CACHE/*,*/CACHE/*
-"let g:ctrlp_custom_ignore = {
-  "\ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  "\ 'file': '\v\.(exe|so|dll|sql)$',
-  "\ }
-"let g:ctrlp_working_path_mode = 'ra'
+set wildmenu
+set wildmode=list:longest,list:full
+" filetypes to ignore for ctrl-p
+set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cache/*,*.swp,*.pyc,CACHE/*,*/CACHE/*
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|sql)$',
+  \ }
+let g:ctrlp_working_path_mode = 'ra'
 
 " No beeping
 set noerrorbells
