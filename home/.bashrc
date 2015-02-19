@@ -135,5 +135,5 @@ export NODE_PATH="$HOME/local/lib/node_modules/"
 
 
 # okcupid ssh settings
-SSH_AUTH_SOCK=/var/folders/nx/qrn7hy5j4s76hh65djk_k3dr0000gn/T//ssh-1EmXCOf8IRsA/agent.64514; export SSH_AUTH_SOCK;
-SSH_AGENT_PID=64515; export SSH_AGENT_PID;
+SSH_AUTH_SOCK=/var/folders/nx/qrn7hy5j4s76hh65djk_k3dr000xdx/T//ssh-1FAxjFyQHepP/agent.86139; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=86140; export SSH_AGENT_PID;

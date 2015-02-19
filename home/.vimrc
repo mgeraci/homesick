@@ -30,13 +30,10 @@ syntax enable
 " set the font in iterm preferences, but this would be for guis
 "set guifont=Droid_Sans_Mono_for_Powerline:h13
 
-" powerline
-"""""""""""
-
-" use patched font
+" powerline: use patched font
 let g:Powerline_symbols = 'fancy'
 
-" always show statusline
+" powerline: always show statusline
 set laststatus=2
 
 " tab indetation - use tabs, display as 2 columns
@@ -80,15 +77,15 @@ nnoremap <Leader>c :execute "set colorcolumn=".(&colorcolumn != 80 ? 80 : 0)<cr>
 " textmate-style comment shortcut
 map <C-C> <Leader>ci
 
-" filetypes to ignore for ctrl-p
-set wildmenu
-set wildmode=list:longest,list:full
-set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cache/*,*.swp,*.pyc,CACHE/*,*/CACHE/*
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll|sql)$',
-  \ }
-let g:ctrlp_working_path_mode = 'ca'
+" ctrl-p settings
+"set wildmenu
+"set wildmode=list:longest,list:full
+"set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cache/*,*.swp,*.pyc,CACHE/*,*/CACHE/*
+"let g:ctrlp_custom_ignore = {
+  "\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  "\ 'file': '\v\.(exe|so|dll|sql)$',
+  "\ }
+"let g:ctrlp_working_path_mode = 'ra'
 
 " No beeping
 set noerrorbells
