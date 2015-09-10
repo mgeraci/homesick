@@ -45,6 +45,9 @@ alias rm="rm -i"
 # servers
 alias dj="ssh mgeraci.dev.okcupid.com"
 
+# update git submodule
+alias update_submodules = "git submodule foreach git pull origin master"
+
 # Import OkCupid aliases file
 if [ -f ~/.okcupid_aliases ]; then
     source ~/.okcupid_aliases
