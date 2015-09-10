@@ -74,3 +74,5 @@ export NODE_PATH="$HOME/local/lib/node_modules/"
 # okcupid ssh settings
 SSH_AUTH_SOCK=/var/folders/nx/qrn7hy5j4s76hh65djk_k3dr000xdx/T//ssh-0lEnhxy1IVm1/agent.91960; export SSH_AUTH_SOCK;
 SSH_AGENT_PID=91961; export SSH_AGENT_PID;
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

@@ -73,3 +73,6 @@
 [submodule "home/.vim/bundle/vim-cjsx"]
 	path = home/.vim/bundle/vim-cjsx
 	url = git@github.com:mtscout6/vim-cjsx.git
+[submodule "home/.vim/bundle/pathogen"]
+	path = home/.vim/bundle/pathogen
+	url = https://github.com/tpope/vim-pathogen.git

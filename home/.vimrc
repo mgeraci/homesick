@@ -1,5 +1,8 @@
 " load pathogen
+runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
+
+" allow syntax highlighting, filetype plugins, and indenting
 syntax on
 filetype plugin on
 filetype indent on
@@ -82,6 +85,7 @@ map <C-C> <Leader>ci
 " ctrl-p settings
 set wildmenu
 set wildmode=list:longest,list:full
+
 " filetypes to ignore for ctrl-p
 set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cache/*,*.swp,*.pyc,CACHE/*,*/CACHE/*
 let g:ctrlp_custom_ignore = {
@@ -89,6 +93,17 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|sql)$',
   \ }
 let g:ctrlp_working_path_mode = 'a'
+
+" ctrl-p settings for git projects
+if executable('ag')
+	set grepprg=ag\ --nogroup\ --nocolor
+	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif
 
 " No beeping
 set noerrorbells
@@ -182,3 +197,6 @@ endif
 
 " arduino
 au BufNewFile,BufRead *.ino set ft=c
+
+" load okcupid settings
+set rtp+=/home/u1/share/vim
