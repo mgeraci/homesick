@@ -63,4 +63,4 @@
   ui = true
 
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
