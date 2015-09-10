@@ -1,12 +1,22 @@
-" load pathogen
+""""""""""""
+" Pathogen "
+""""""""""""
+
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
-" allow syntax highlighting, filetype plugins, and indenting
-syntax on
-filetype plugin on
-filetype indent on
-set autoindent
+
+""""""""""""""""""""""""""""
+" Saving and vim internals "
+""""""""""""""""""""""""""""
+
+" move vim's temporary files
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swp//
+
+" move vim's undo files
+set undofile
+set undodir=~/.vim/tmp/undo//
 
 " reload vimrc when you save it
 if !exists("autocommands_loaded")
@@ -25,15 +35,62 @@ endif
 " or switching applications if using iTerm2)
 autocmd BufLeave,FocusLost * silent! wall
 
-" theme and font
+" set the leader key
+let mapleader = ','
+
+" remap ; to : in normal mode to stop hitting shift
+noremap ; :
+
+" fugitive github domain
+let g:fugitive_github_domains = ['https://github.com']
+
+
+"""""""""""""""""
+" Editing style "
+"""""""""""""""""
+
+" allow syntax highlighting
+syntax on
+syntax enable
+
+" figure out file types
+filetype plugin on
+filetype indent on
+
+" match the indentation level of the previous line
+set autoindent
+
+" disable autowrapping and column breaks
+set nowrap
+set tw=0
+
+" line numbers
+set number
+
+" list disables linebreak
+set nolist
+
+" no beeping or flashing
+set noerrorbells
+set novisualbell
+
+
+""""""""""""""""""
+" Theme and font "
+""""""""""""""""""
+
 " irblack theme: https://github.com/wgibbs/vim-irblack
 set t_Co=256
 set background=dark
 colorscheme ir_black
-syntax on
-syntax enable
-" set the font in iterm preferences, but this would be for guis
+
+" I set the font in iterm preferences, but this would be for guis like MacVim
 "set guifont=Droid_Sans_Mono_for_Powerline:h13
+
+
+"""""""""""""
+" Powerline "
+"""""""""""""
 
 " powerline: use patched font
 let g:Powerline_symbols = 'fancy'
@@ -41,15 +98,49 @@ let g:Powerline_symbols = 'fancy'
 " powerline: always show statusline
 set laststatus=2
 
-" tab indetation - use tabs, display as 2 columns
-" (good overview: http://tedlogan.com/techblog3.html)
-:set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+
+""""""""
+" Tabs "
+""""""""
+
+" use tabs, display as 2 columns. a good overview of these settings:
+" http://tedlogan.com/techblog3.html
+
+" tab size
+:set tabstop=2
+
+" help backspace/delete figure out which spaces are tabs
+:set softtabstop=2
+
+" indent/outdent size
+:set shiftwidth=2
+
+" do not convert tabs to spaces
+:set noexpandtab
+
+
+"""""""""""""
+" Searching "
+"""""""""""""
+
+" highlight search
+set hlsearch
+
+" case for search: ignore the case, unless you have something capitalized in
+" your query
+set ignorecase
+set smartcase
+
+
+"""""""""""""
+" Shortcuts "
+"""""""""""""
 
 " remap escape key to delete, handy on kinesis advantage
 vnoremap <Del> <esc>
 noremap! <Del> <esc>
 
-" jumping splits
+" jump splits with ctrl and navigation keys in any mode
 noremap <C-h> <C-w>h
 noremap <C-l> <C-w>l
 noremap <C-j> <C-w>j
@@ -59,15 +150,10 @@ imap <C-l> <esc><C-w>l
 imap <C-j> <esc><C-w>j
 imap <C-k> <esc><C-w>k
 
-" remap ; to : in normal mode to stop hitting shift
-noremap ; :
-
-" do not use the fkeys I use for itunes
+" noop the function keys I use for itunes
 imap <F9> <nop>
 imap <F10> <nop>
 imap <F11> <nop>
-
-let mapleader = ','
 
 map <Leader>g  :Gstatus<cr>
 map <Leader>n  :NERDTreeToggle<cr>
@@ -82,19 +168,42 @@ nnoremap <Leader>c :execute "set colorcolumn=".(&colorcolumn != 80 ? 80 : 0)<cr>
 " textmate-style comment shortcut
 map <C-C> <Leader>ci
 
-" ctrl-p settings
+" upper/lower word
+nmap <leader>u mQviwU`Q
+nmap <leader>l mQviwu`Q
+
+" upper/lower first char of word
+nmap <leader>U mQgewvU`Q
+nmap <leader>L mQgewvu`Q
+
+
+""""""""""""""""""""""""""""""""""""
+" Ignore files for indexing/ctrl-p "
+""""""""""""""""""""""""""""""""""""
+
+" Ignore compiled files
+set wildignore+=*.o,*.class,*.rbc,*.pyc
+
+" Ignore version control directories
+set wildignore+=.git,.svn,.hg
+
+" Ignore temp/cached files
+set wildignore+=*.swp,*.un~,vendor/gems/*,*/tmp/cache/*,CACHE/*,*/CACHE/*
+
+" Ignore backups
+set wildignore+=backups
+
+
+"""""""""""""""""""
+" Ctrl-P settings "
+"""""""""""""""""""
+
+" general settings
 set wildmenu
 set wildmode=list:longest,list:full
-
-" filetypes to ignore for ctrl-p
-set wildignore+=*.un~,*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*/tmp/cache/*,*.swp,*.pyc,CACHE/*,*/CACHE/*
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll|sql)$',
-  \ }
 let g:ctrlp_working_path_mode = 'a'
 
-" ctrl-p settings for git projects
+" settings for git projects
 if executable('ag')
 	set grepprg=ag\ --nogroup\ --nocolor
 	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -105,25 +214,14 @@ else
     \ }
 endif
 
-" No beeping
-set noerrorbells
-set novisualbell
 
-" upper/lower word
-nmap <leader>u mQviwU`Q
-nmap <leader>l mQviwu`Q
+"""""""""""""""
+" Moving text "
+"""""""""""""""
 
-" upper/lower first char of word
-nmap <leader>U mQgewvU`Q
-nmap <leader>L mQgewvu`Q
+" Indent, outdent, and bubble using y-u-i-o (think h-j-k-l, but up a row)
 
-
-" Move text around (indent and outdent, bubbling)
-" using y-u-i-o (similar to h-j-k-l but up a row)
-"""""""""""""""""""""""""""""""""""""""""""""""""
-
-" indenting and outdenting while keeping the
-" original selection in visual mode
+" indent and outdent while keeping your selection in visual mode
 vmap <C-O> >gv
 vmap <C-Y> <gv
 
@@ -136,54 +234,23 @@ omap <C-Y> <<
 imap <C-O> <Esc>>>i
 imap <C-Y> <Esc><<i
 
-" Text bubbling
-" Bubble single lines
+" bubble single lines
 nmap <C-U> ]e
 nmap <C-I> [e
 
-" Bubble multiple lines
+" bubble multiple lines
 vmap <C-U> ]egv
 vmap <C-I> [egv
 
 
-" disable autowrapping and column breaks
-set nowrap
-set tw=0
+"""""""""""""""""""""""
+" Syntax highlighting "
+"""""""""""""""""""""""
 
-" list disables linebreak
-set nolist
-
-" fugitive github domain
-let g:fugitive_github_domains = ['https://github.com']
-
-" highlight search
-set hlsearch
-
-" line numbers
-set number
-
-" move vim's temporary files
-set backupdir=~/.vim/tmp/backup//
-set directory=~/.vim/tmp/swp//
-
-" undo files
-set undofile
-set undodir=~/.vim/tmp/undo//
-
-" case for search
-set ignorecase
-set smartcase
-
-
-"" Syntax highlighting for odd file types
-
-" syntax highlighting for hamstache files
-" just set as haml
+" hamstache files: just set to haml
 au Bufread,BufNewFile *.hamstache set filetype=haml
 
-" syntax highlighting for toffee files
-" just set as coffee
-"au Bufread,BufNewFile *.toffee set filetype=coffee
+" toffee files
 autocmd BufNewFile,BufRead *.toffee set filetype=toffee
 
 " jinja
@@ -197,6 +264,11 @@ endif
 
 " arduino
 au BufNewFile,BufRead *.ino set ft=c
+
+
+"""""""""""
+" Imports "
+"""""""""""
 
 " load okcupid settings
 set rtp+=/home/u1/share/vim
