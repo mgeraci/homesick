@@ -3,9 +3,7 @@
 
 # Colors ----------------------------------------------------------
 export TERM=xterm-color
-
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
-
 export CLICOLOR=1
 
 alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
@@ -45,7 +43,7 @@ bind "set show-all-if-ambiguous On"
 
 # Turn on advanced bash completion if the file exists (get it here: http://www.caliban.org/bash/index.shtml#completion)
 if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+	. /etc/bash_completion
 fi
 
 # append branch name when you're in a git directory
@@ -55,10 +53,7 @@ function parse_git_branch {
 
 
 # Prompts ----------------------------------------------------------
-# export PS1="\[${COLOR_GREEN}\]\w > \[${COLOR_NC}\]"  # Primary prompt with only a path
 export PS1="\[${COLOR_GREEN}\]\w\$(parse_git_branch) > \[${COLOR_NC}\]"  # Primary prompt with only a path
-# export PS1="\[${COLOR_RED}\]\w > \[${COLOR_NC}\]"  # Primary prompt for root user, to highlight when you're logged in as root
-# export PS1="\[${COLOR_GRAY}\]\u@\h \[${COLOR_GREEN}\]\w > \[${COLOR_NC}\]"  # Primary prompt with user, host, and path
 
 # This runs before the prompt and sets the title of the xterm* window.  If you set the title in the prompt
 # weird wrapping errors occur on some systems, so this method is superior
@@ -68,11 +63,6 @@ export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -n
 export PS2='> '    # Secondary prompt
 export PS3='#? '   # Prompt 3
 export PS4='+'     # Prompt 4
-
-function xtitle {  # change the title of your xterm* window
-  unset PROMPT_COMMAND
-  echo -ne "\033]0;$1\007"
-}
 
 
 # Navigation -------------------------------------------------------
@@ -85,12 +75,12 @@ alias ...='cd .. ; cd ..'
 #    You can subsequently move to one of the saved directories by using cd with
 #    the abbreviation you chose. Eg. cd ms  (Note that no '$' is necessary.)
 if [ ! -f ~/.dirs ]; then  # if doesn't exist, create it
-touch ~/.dirs
+	touch ~/.dirs
 fi
 
 alias show='cat ~/.dirs'
 save (){
-command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs ;
+	command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs;
 }
 source ~/.dirs  # Initialization for the above 'save' facility: source the .sdirs file
 shopt -s cdable_vars # set the bash option so that no '$' is required when using the above facility
@@ -101,28 +91,21 @@ shopt -s cdable_vars # set the bash option so that no '$' is required when using
 alias ll='ls -hl'
 alias la='ls -a'
 alias lla='ls -lah'
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
 
 # Misc
 alias g='grep -i'  # Case insensitive grep
 alias f='find . -iname'
-alias ducks='du -cksh * | sort -rn|head -11' # Lists folders and files sizes in the current folder
+alias ducks='du -cks * | sort -rn | head -11' # Lists folders and files sizes in the current folder
 alias m='more'
 alias df='df -h'
 
 # Shows most used commands, cool script I got this from: http://lifehacker.com/software/how-to/turbocharge-your-terminal-274317.php
-alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
-
-
-# Editors ----------------------------------------------------------
-export EDITOR='mate -w'  # OS-X SPECIFIC - TextMate, w is to wait for TextMate window to close
-#export EDITOR='gedit'  #Linux/gnome
-#export EDITOR='vim'  #Command line
+alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -nr | head -20"
 
 alias specc='spec -c -f n'
-
-alias cp="cp -i"
-alias mv="mv -i"
-alias rm="rm -i"
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/local/node/bin:$PATH"
 export PATH="/usr/local/git/bin:/usr/local/ruby/bin:$PATH"

@@ -31,12 +31,6 @@ save (){
 source ~/.dirs  # Initialization for the above 'save' facility: source the .sdirs file
 # end Save and cd into directories
 
-# kill oh-my-zsh's git prompt
-function git_prompt_info() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
-}
-
 # ask first
 alias cp="cp -i"
 alias mv="mv -i"
@@ -47,11 +41,6 @@ alias dj="ssh mgeraci.dev.okcupid.com"
 
 # update git submodule
 alias update_submodules = "git submodule foreach git pull origin master"
-
-# Import OkCupid aliases file
-if [ -f ~/.okcupid_aliases ]; then
-    source ~/.okcupid_aliases
-fi
 
 # stop trying to correct some spellings
 alias consular="nocorrect consular"
@@ -74,8 +63,13 @@ fi
 export PATH=/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin::/Users/mgeraci/.bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/mgeraci/.rvm/bin:/Users/mgeraci/local/bin
 export NODE_PATH="$HOME/local/lib/node_modules/"
 
-# okcupid ssh settings
-SSH_AUTH_SOCK=/var/folders/nx/qrn7hy5j4s76hh65djk_k3dr000xdx/T//ssh-0lEnhxy1IVm1/agent.91960; export SSH_AUTH_SOCK;
-SSH_AGENT_PID=91961; export SSH_AGENT_PID;
+# okcupid settings
+SSH_AUTH_SOCK=/var/folders/nx/qrn7hy5j4s76hh65djk_k3dr0000gn/T//ssh-1EmXCOf8IRsA/agent.64514; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=64515; export SSH_AGENT_PID;
+alias dj="ssh mgeraci.dev.okcupid.com"
+alias okfiles="sudo sshfs mgeraci@fileserver:/vol/data1/u0 /nfs/u0"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# okc aliases
+if [ -f ~/.okcupid_aliases ]; then
+    source ~/.okcupid_aliases
+fi
