@@ -177,23 +177,6 @@ nmap <leader>U mQgewvU`Q
 nmap <leader>L mQgewvu`Q
 
 
-""""""""""""""""""""""""""""""""""""
-" Ignore files for indexing/ctrl-p "
-""""""""""""""""""""""""""""""""""""
-
-" Ignore compiled files
-set wildignore+=*.o,*.class,*.rbc,*.pyc
-
-" Ignore version control directories
-set wildignore+=.git,.svn,.hg
-
-" Ignore temp/cached files
-set wildignore+=*.swp,*.un~,vendor/gems/*,*/tmp/cache/*,CACHE/*,*/CACHE/*
-
-" Ignore backups
-set wildignore+=backups
-
-
 """""""""""""""""""
 " Ctrl-P settings "
 """""""""""""""""""
@@ -213,6 +196,26 @@ else
     \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
     \ }
 endif
+
+
+""""""""""""""""""""""""""""""""""""
+" Ignore files for indexing/ctrl-p "
+""""""""""""""""""""""""""""""""""""
+
+" Ignore compiled files
+set wildignore+=*.o,*.class,*.rbc,*.pyc
+
+" Ignore version control directories
+set wildignore+=.git,.svn,.hg
+
+" Ignore temp/cached files
+set wildignore+=*.swp,*.un~,vendor/gems/*,*/tmp/cache/*,CACHE/*,*/CACHE/*
+
+" Ignore node modules
+set wildignore+=node_modules/
+
+" Ignore backups
+set wildignore+=backups
 
 
 """""""""""""""
