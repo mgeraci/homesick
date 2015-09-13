@@ -92,10 +92,10 @@ colorscheme ir_black
 " Powerline "
 """""""""""""
 
-" powerline: use patched font
+" use patched font
 let g:Powerline_symbols = 'fancy'
 
-" powerline: always show statusline
+" always show statusline
 set laststatus=2
 
 
