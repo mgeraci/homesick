@@ -117,7 +117,7 @@ export PATH=$PATH:$HOME/local/bin
 export NODE_PATH="$HOME/local/lib/node_modules/"
 
 # okcupid aliases
-if [ -f ~/frontend_aliases/.okcupid_aliases ]; then
+if [ -f ~/frontend_aliases/.frontend_aliases ]; then
 	source ~/frontend_aliases/.frontend_aliases
 fi
 
@@ -127,5 +127,6 @@ if [ -f ~/.devjail_settings ]; then
 fi
 
 # okcupid ssh settings
-SSH_AUTH_SOCK=/var/folders/nx/qrn7hy5j4s76hh65djk_k3dr000xdx/T//ssh-1FAxjFyQHepP/agent.86139; export SSH_AUTH_SOCK;
-SSH_AGENT_PID=86140; export SSH_AGENT_PID;
+if [ -f /home/u1/bin/ssh-magic ]; then
+	source /home/u1/bin/ssh-magic
+fi
