@@ -96,7 +96,7 @@ alias mv="mv -i"
 alias rm="rm -i"
 
 # Misc
-alias g='grep -i'  # Case insensitive grep
+alias g='git'
 alias f='find . -iname'
 alias ducks='du -cks * | sort -rn | head -11' # Lists folders and files sizes in the current folder
 alias m='more'
@@ -116,6 +116,15 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/local/bin
 export NODE_PATH="$HOME/local/lib/node_modules/"
 
+# okcupid aliases
+if [ -f ~/frontend_aliases/.okcupid_aliases ]; then
+	source ~/frontend_aliases/.frontend_aliases
+fi
+
+# okcupid devjail-specific settings
+if [ -f ~/.devjail_settings ]; then
+	source ~/.devjail_settings
+fi
 
 # okcupid ssh settings
 SSH_AUTH_SOCK=/var/folders/nx/qrn7hy5j4s76hh65djk_k3dr000xdx/T//ssh-1FAxjFyQHepP/agent.86139; export SSH_AUTH_SOCK;
