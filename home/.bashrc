@@ -107,8 +107,12 @@ alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' 
 
 alias specc='spec -c -f n'
 
+# Path -------------------------------------------------------------
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/local/node/bin:$PATH"
 export PATH="/usr/local/git/bin:/usr/local/ruby/bin:$PATH"
+
+# add okcupid general settings to the path
+export PATH="/home/u1/bin:$PATH"
 
 complete -C ~/bin/tablete -o default rake
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
