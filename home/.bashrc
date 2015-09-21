@@ -117,6 +117,9 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/local/bin
 export NODE_PATH="$HOME/local/lib/node_modules/"
 
+# update git submodules
+alias update_submodules="git submodule foreach git pull origin master"
+
 # okcupid aliases
 if [ -f ~/frontend_aliases/.frontend_aliases ]; then
 	source ~/frontend_aliases/.frontend_aliases
