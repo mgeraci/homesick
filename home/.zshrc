@@ -39,8 +39,8 @@ alias rm="rm -i"
 # servers
 alias dj="ssh mgeraci.dev.okcupid.com"
 
-# update git submodule
-alias update_submodules = "git submodule foreach git pull origin master"
+# update git submodules
+alias update_submodules="git submodule foreach git pull origin master"
 
 # stop trying to correct some spellings
 alias consular="nocorrect consular"

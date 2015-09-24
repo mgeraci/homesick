@@ -20,17 +20,6 @@ source ~/.bashrc
 # Git tab completion ----------------------------------------------
 source ~/.git-completion.bash
 
-# Hello Messsage --------------------------------------------------
-# echo -e "Kernel Information: " `uname -smr`
-# echo -e "${COLOR_BROWN}`bash --version`"
-# echo -ne "${COLOR_GRAY}Uptime: "; uptime
-# echo -ne "${COLOR_GRAY}Server time is: "; date
-echo -e "${COLOR_BROWN}Code like the wind";
-
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # create a variable for my media server --------------------------

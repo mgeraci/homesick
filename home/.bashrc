@@ -96,7 +96,7 @@ alias mv="mv -i"
 alias rm="rm -i"
 
 # Misc
-alias g='grep -i'  # Case insensitive grep
+alias g='git'
 alias f='find . -iname'
 alias ducks='du -cks * | sort -rn | head -11' # Lists folders and files sizes in the current folder
 alias m='more'
@@ -107,6 +107,7 @@ alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' 
 
 alias specc='spec -c -f n'
 
+# Path -------------------------------------------------------------
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/local/node/bin:$PATH"
 export PATH="/usr/local/git/bin:/usr/local/ruby/bin:$PATH"
 
@@ -116,7 +117,20 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/local/bin
 export NODE_PATH="$HOME/local/lib/node_modules/"
 
+# update git submodules
+alias update_submodules="git submodule foreach git pull origin master"
+
+# okcupid aliases
+if [ -f ~/frontend_aliases/.frontend_aliases ]; then
+	source ~/frontend_aliases/.frontend_aliases
+fi
+
+# okcupid devjail-specific settings
+if [ -f ~/.devjail_settings ]; then
+	source ~/.devjail_settings
+fi
 
 # okcupid ssh settings
-SSH_AUTH_SOCK=/var/folders/nx/qrn7hy5j4s76hh65djk_k3dr000xdx/T//ssh-1FAxjFyQHepP/agent.86139; export SSH_AUTH_SOCK;
-SSH_AGENT_PID=86140; export SSH_AGENT_PID;
+if [ -f /home/u1/bin/ssh-magic ]; then
+	source /home/u1/bin/ssh-magic
+fi
