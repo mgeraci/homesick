@@ -74,6 +74,9 @@ set nolist
 set noerrorbells
 set novisualbell
 
+" no folding by default
+set foldlevel=99
+
 
 """"""""""""""""""
 " Theme and font "
