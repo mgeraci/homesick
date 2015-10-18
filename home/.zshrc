@@ -10,7 +10,7 @@ ZSH_THEME="mgeraci"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rvm vi-mode)
+#plugins=(git rvm vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -38,6 +38,9 @@ alias rm="rm -i"
 
 # servers
 alias dj="ssh mgeraci.dev.okcupid.com"
+
+# git shortcut for the lazy
+alias g="git"
 
 # update git submodules
 alias update_submodules="git submodule foreach git pull origin master"
