@@ -91,15 +91,12 @@ colorscheme ir_black
 "set guifont=Droid_Sans_Mono_for_Powerline:h13
 
 
-"""""""""""""
-" Powerline "
-"""""""""""""
+"""""""""""
+" Airline "
+"""""""""""
 
 " use patched font
-let g:Powerline_symbols = 'fancy'
-
-" always show statusline
-set laststatus=2
+let g:airline_powerline_fonts = 1
 
 
 """"""""
