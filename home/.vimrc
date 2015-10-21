@@ -271,6 +271,9 @@ endif
 " arduino
 au BufNewFile,BufRead *.ino set ft=c
 
+" scad
+au BufNewFile,BufRead *.scad set ft=c
+
 
 """""""""""
 " Imports "
