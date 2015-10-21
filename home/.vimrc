@@ -98,6 +98,9 @@ colorscheme ir_black
 " use patched font
 let g:airline_powerline_fonts = 1
 
+" show the status line, even when you only have one split open
+set laststatus=2
+
 
 """"""""
 " Tabs "
