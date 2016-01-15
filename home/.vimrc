@@ -53,6 +53,11 @@ let g:fugitive_github_domains = ['https://github.com']
 syntax on
 syntax enable
 
+" ensure that syntax highlightin always reads from the start of a file (this
+" fixes syntax highlighting breaking when jumping around large files,
+" specifically in pub)
+autocmd BufEnter * :syntax sync fromstart
+
 " figure out file types
 filetype plugin on
 filetype indent on
