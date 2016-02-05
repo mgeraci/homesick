@@ -71,7 +71,12 @@ SSH_AGENT_PID=64515; export SSH_AGENT_PID;
 alias dj="ssh mgeraci.dev.okcupid.com"
 alias okfiles="sudo sshfs mgeraci@fileserver:/vol/data1/u0 /nfs/u0"
 
+# okc frontend aliases
+if [ -f ~/frontend_aliases/.frontend_aliases ]; then
+	source ~/frontend_aliases/.frontend_aliases
+fi
+
 # okc aliases
 if [ -f ~/.okcupid_aliases ]; then
-    source ~/.okcupid_aliases
+	source ~/.okcupid_aliases
 fi

@@ -53,6 +53,11 @@ let g:fugitive_github_domains = ['https://github.com']
 syntax on
 syntax enable
 
+" ensure that syntax highlightin always reads from the start of a file (this
+" fixes syntax highlighting breaking when jumping around large files,
+" specifically in pub)
+autocmd BufEnter * :syntax sync fromstart
+
 " figure out file types
 filetype plugin on
 filetype indent on
@@ -164,9 +169,12 @@ map <Leader>nf :NERDTreeFind<cr>
 map <Leader>p  :set paste<cr>
 map <Leader>np :set nopaste<cr>
 
-" leader-c toggles 80-column highlight
+" copy to system pasteboard (extra cr dismisses the 'enter to continue')
+map <Leader>c  :w !pbcopy<cr><cr>
+
+" leader-l toggles 80-column highlight
 :highlight ColorColumn ctermbg=1
-nnoremap <Leader>c :execute "set colorcolumn=".(&colorcolumn != 80 ? 80 : 0)<cr>
+nnoremap <Leader>l :execute "set colorcolumn=".(&colorcolumn != 80 ? 80 : 0)<cr>
 
 " textmate-style comment shortcut
 map <C-C> <Leader>ci
