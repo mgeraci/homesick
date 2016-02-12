@@ -36,6 +36,8 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 
+alias lla="ls -la"
+
 # servers
 alias dj="ssh mgeraci.dev.okcupid.com"
 
