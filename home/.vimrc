@@ -163,18 +163,18 @@ imap <F9> <nop>
 imap <F10> <nop>
 imap <F11> <nop>
 
-map <Leader>g  :Gstatus<cr>
-map <Leader>n  :NERDTreeToggle<cr>
-map <Leader>nf :NERDTreeFind<cr>
-map <Leader>p  :set paste<cr>
-map <Leader>np :set nopaste<cr>
+map <leader>g  :Gstatus<cr>
+map <leader>n  :NERDTreeToggle<cr>
+map <leader>nf :NERDTreeFind<cr>
+map <leader>p  :set paste<cr>
+map <leader>np :set nopaste<cr>
 
 " copy to system pasteboard (extra cr dismisses the 'enter to continue')
-map <Leader>c  :w !pbcopy<cr><cr>
+map <leader>c  :w !pbcopy<cr><cr>
 
 " leader-l toggles 80-column highlight
 :highlight ColorColumn ctermbg=1
-nnoremap <Leader>l :execute "set colorcolumn=".(&colorcolumn != 80 ? 80 : 0)<cr>
+noremap <leader>b :execute "set colorcolumn=".(&colorcolumn != 80 ? 80 : 0)<cr>
 
 " textmate-style comment shortcut
 map <C-C> <Leader>ci

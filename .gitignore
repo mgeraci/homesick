@@ -4,4 +4,5 @@ home/.vim/.netrwhist
 home/.vim/tmp/backup/**/*
 home/.vim/tmp/swp/**/*
 home/.vim/tmp/undo/**/*
+home/.vim/bundle/**/*
 .DS_Store
