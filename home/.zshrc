@@ -44,6 +44,9 @@ alias dj="ssh mgeraci.dev.okcupid.com"
 # git shortcut for the lazy
 alias g="git"
 
+# newer, brewed version of vim
+alias vi="vim"
+
 # update git submodules
 alias update_submodules="git submodule foreach git pull origin master"
 
@@ -53,17 +56,17 @@ alias irssi="nocorrect irssi"
 alias meteor="nocorrect meteor"
 alias glue="nocorrect glue"
 
-# RVM Support
+# rvm support
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
-# Python virtualenv
+# python virtualenv
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
 	export WORKON_HOME=$HOME/.virtualenvs
 	export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
 	source /usr/local/bin/virtualenvwrapper.sh
 fi
 
-# Path
+# path
 export PATH=/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin:/usr/local/sbin:/Users/mgeraci/.bin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/mgeraci/.rvm/bin:/Users/mgeraci/local/bin
 export NODE_PATH="$HOME/local/lib/node_modules/"
 
