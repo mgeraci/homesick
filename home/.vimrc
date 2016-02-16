@@ -82,6 +82,9 @@ set novisualbell
 " no folding by default
 set foldlevel=99
 
+" allow backspace in all contexts
+set backspace=indent,eol,start
+
 
 """"""""""""""""""
 " Theme and font "
