@@ -82,3 +82,6 @@
 [submodule "home/.vim/bundle/vim-es6"]
 	path = home/.vim/bundle/vim-es6
 	url = git@github.com:isRuslan/vim-es6.git
+[submodule "home/.vim/bundle/vim-jsx"]
+	path = home/.vim/bundle/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git
