@@ -172,6 +172,7 @@ map <leader>nf :NERDTreeFind<cr>
 map <leader>p  :set paste<cr>
 map <leader>np :set nopaste<cr>
 map <leader>r  :redraw!<cr>
+map <leader>ct :checktime<cr>
 
 " copy to system pasteboard (extra cr dismisses the 'enter to continue')
 map <leader>c  :w !pbcopy<cr><cr>
