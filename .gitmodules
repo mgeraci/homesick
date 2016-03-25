@@ -4,9 +4,6 @@
 [submodule "home/.vim/bundle/supertab"]
 	path = home/.vim/bundle/supertab
 	url = git@github.com:ervandew/supertab.git
-[submodule "home/.vim/bundle/fugitive"]
-	path = home/.vim/bundle/fugitive
-	url = git@github.com:tpope/vim-fugitive.git
 [submodule "home/.vim/bundle/javascript"]
 	path = home/.vim/bundle/javascript
 	url = git@github.com:pangloss/vim-javascript.git
@@ -52,9 +49,6 @@
 [submodule "home/.vim/bundle/vim-jinja"]
 	path = home/.vim/bundle/vim-jinja
 	url = git@github.com:lepture/vim-jinja.git
-[submodule "home/.vim/bundle/arduino"]
-	path = home/.vim/bundle/arduino
-	url = git@github.com:tclem/vim-arduino.git
 [submodule "home/.vim/bundle/vim-cjsx"]
 	path = home/.vim/bundle/vim-cjsx
 	url = git@github.com:mtscout6/vim-cjsx.git
