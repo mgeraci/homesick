@@ -286,6 +286,7 @@ au BufNewFile,BufRead *.ino set ft=c
 
 " scad 3d models
 au BufNewFile,BufRead *.scad set ft=c
+au BufNewFile,BufRead *.scad set ft=c
 
 
 """""""""""
