@@ -43,6 +43,7 @@ alias dj="ssh mgeraci.dev.okcupid.com"
 
 # git shortcut for the lazy
 alias g="git"
+alias bd="git diff --name-status master... | sort"
 
 # newer, brewed version of vim
 alias vi="vim"
