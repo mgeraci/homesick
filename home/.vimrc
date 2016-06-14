@@ -85,6 +85,16 @@ set foldlevel=99
 " allow backspace in all contexts
 set backspace=indent,eol,start
 
+" Return to last edit position when opening files
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
+" remember info about open buffers on close (required for "return to last edit
+" position")
+set viminfo^=%
+
 
 """"""""""""""""""
 " Theme and font "
