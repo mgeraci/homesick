@@ -64,3 +64,6 @@
 [submodule "home/.vim/bundle/vim-jsx"]
 	path = home/.vim/bundle/vim-jsx
 	url = git@github.com:mxw/vim-jsx.git
+[submodule "home/.vim/bundle/javascript"]
+	path = home/.vim/bundle/javascript
+	url = git@github.com:mgeraci/vim-javascript.git
