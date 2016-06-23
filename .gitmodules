@@ -4,9 +4,6 @@
 [submodule "home/.vim/bundle/supertab"]
 	path = home/.vim/bundle/supertab
 	url = git@github.com:ervandew/supertab.git
-[submodule "home/.vim/bundle/javascript"]
-	path = home/.vim/bundle/javascript
-	url = git@github.com:pangloss/vim-javascript.git
 [submodule "home/.vim/bundle/markdown"]
 	path = home/.vim/bundle/markdown
 	url = git@github.com:plasticboy/vim-markdown.git
