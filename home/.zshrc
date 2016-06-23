@@ -69,7 +69,10 @@ fi
 
 # path
 export PATH=/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin:/usr/local/sbin:/Users/mgeraci/.bin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/mgeraci/.rvm/bin:/Users/mgeraci/local/bin
-export NODE_PATH="$HOME/local/lib/node_modules/"
+
+# nvm (must be after path declaration, as nvm adds itself to the path)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # okcupid settings
 SSH_AUTH_SOCK=/var/folders/nx/qrn7hy5j4s76hh65djk_k3dr0000gn/T//ssh-1EmXCOf8IRsA/agent.64514; export SSH_AUTH_SOCK;
