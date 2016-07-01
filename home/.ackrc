@@ -1,6 +1,3 @@
-# start with all types
---all-types
-
 # add coffeescript support
 --type-set=cjsx=.cjsx
 --type-set=coffee=.coffee
