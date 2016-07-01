@@ -1,0 +1,25 @@
+# start with all types
+--all-types
+
+# add coffeescript support
+--type-set=cjsx=.cjsx
+--type-set=coffee=.coffee
+
+# ditto, scss
+--type-set=scss=.scss
+--type-set=css=.css
+
+# always color
+--color
+
+# page with less
+--pager=less -rSFX
+
+# ignore some dirs
+#-G \^\(\(\?\!min.js\)\.\)\*\$
+# ignore bower_components
+--ignore-dir=bower_components
+--ignore-dir=node_modules
+--ignore-dir=mobile_web
+--ignore-dir=flat
+--ignore-dir=js/mobile_app/ads/
