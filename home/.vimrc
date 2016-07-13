@@ -191,8 +191,11 @@ map <leader>c  :w !pbcopy<cr><cr>
 :highlight ColorColumn ctermbg=1
 noremap <leader>b :execute "set colorcolumn=".(&colorcolumn != 80 ? 80 : 0)<cr>
 
-" textmate-style comment shortcut
+" comment shortcut
 map <C-C> <Leader>ci
+
+" add spaces after comment
+let g:NERDSpaceDelims = 1
 
 " upper/lower word
 nmap <leader>u mQviwU`Q
