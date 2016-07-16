@@ -85,6 +85,16 @@ set foldlevel=99
 " allow backspace in all contexts
 set backspace=indent,eol,start
 
+" Return to last edit position when opening files
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
+" remember info about open buffers on close (required for "return to last edit
+" position")
+set viminfo^=%
+
 
 """"""""""""""""""
 " Theme and font "
@@ -181,8 +191,11 @@ map <leader>c  :w !pbcopy<cr><cr>
 :highlight ColorColumn ctermbg=1
 noremap <leader>b :execute "set colorcolumn=".(&colorcolumn != 80 ? 80 : 0)<cr>
 
-" textmate-style comment shortcut
+" comment shortcut
 map <C-C> <Leader>ci
+
+" add spaces after comment
+let g:NERDSpaceDelims = 1
 
 " upper/lower word
 nmap <leader>u mQviwU`Q
