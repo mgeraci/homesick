@@ -79,6 +79,7 @@ SSH_AUTH_SOCK=/var/folders/nx/qrn7hy5j4s76hh65djk_k3dr0000gn/T//ssh-1EmXCOf8IRsA
 SSH_AGENT_PID=64515; export SSH_AGENT_PID;
 alias dj="ssh mgeraci.dev.okcupid.com"
 alias okfiles="sudo sshfs mgeraci@fileserver:/vol/data1/u0 /nfs/u0"
+alias okf="cd ~/Web/okfrontend"
 
 # okc frontend aliases
 if [ -f ~/frontend_aliases/.frontend_aliases ]; then
