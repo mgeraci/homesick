@@ -1,0 +1,17 @@
+pane do
+	run "echo 'whassup'"
+end
+
+pane do
+	run "echo 'yo'"
+end
+
+window do
+	pane do
+		run "echo 'hye'"
+	end
+
+	pane do
+		run "echo '4'"
+	end
+end
