@@ -57,6 +57,8 @@ alias irssi="nocorrect irssi"
 alias meteor="nocorrect meteor"
 alias glue="nocorrect glue"
 
+alias f="ack"
+
 # rvm support
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
