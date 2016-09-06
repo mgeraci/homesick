@@ -57,6 +57,8 @@ alias irssi="nocorrect irssi"
 alias meteor="nocorrect meteor"
 alias glue="nocorrect glue"
 
+alias f="ack"
+
 # rvm support
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
@@ -69,13 +71,17 @@ fi
 
 # path
 export PATH=/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin:/usr/local/sbin:/Users/mgeraci/.bin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/mgeraci/.rvm/bin:/Users/mgeraci/local/bin
-export NODE_PATH="$HOME/local/lib/node_modules/"
+
+# nvm (must be after path declaration, as nvm adds itself to the path)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # okcupid settings
 SSH_AUTH_SOCK=/var/folders/nx/qrn7hy5j4s76hh65djk_k3dr0000gn/T//ssh-1EmXCOf8IRsA/agent.64514; export SSH_AUTH_SOCK;
 SSH_AGENT_PID=64515; export SSH_AGENT_PID;
 alias dj="ssh mgeraci.dev.okcupid.com"
 alias okfiles="sudo sshfs mgeraci@fileserver:/vol/data1/u0 /nfs/u0"
+alias okf="cd ~/Web/okfrontend"
 
 # okc frontend aliases
 if [ -f ~/frontend_aliases/.frontend_aliases ]; then
