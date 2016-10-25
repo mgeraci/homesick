@@ -43,7 +43,7 @@ bind "set show-all-if-ambiguous On"
 
 # Turn on advanced bash completion if the file exists (get it here: http://www.caliban.org/bash/index.shtml#completion)
 if [ -f /etc/bash_completion ]; then
-	. /etc/bash_completion
+    . /etc/bash_completion
 fi
 
 # append branch name when you're in a git directory
@@ -86,6 +86,13 @@ source ~/.dirs  # Initialization for the above 'save' facility: source the .sdir
 shopt -s cdable_vars # set the bash option so that no '$' is required when using the above facility
 
 
+# Git completion ---------------------------------------------------
+if [ -f ~/.git-completion.bash ]; then
+	source ~/.git-completion.bash
+fi
+
+__git_complete g __git_main
+
 
 # Other aliases ----------------------------------------------------
 alias ll='ls -hl'
@@ -97,6 +104,7 @@ alias rm="rm -i"
 
 # Misc
 alias g='git'
+alias bd="git diff --name-status master... | sort"
 alias f='find . -iname'
 alias ducks='du -cks * | sort -rn | head -11' # Lists folders and files sizes in the current folder
 alias m='more'
@@ -116,6 +124,10 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export PATH=$PATH:$HOME/local/bin
 export NODE_PATH="$HOME/local/lib/node_modules/"
+
+# load nvm, if present
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # update git submodules
 alias update_submodules="git submodule foreach git pull origin master"
