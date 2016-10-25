@@ -90,3 +90,5 @@ fi
 if [ -f ~/.okcupid_aliases ]; then
 	source ~/.okcupid_aliases
 fi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

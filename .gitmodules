@@ -64,3 +64,6 @@
 [submodule "home/.vim/bundle/javascript"]
 	path = home/.vim/bundle/javascript
 	url = git@github.com:mgeraci/vim-javascript.git
+[submodule "home/.vim/bundle/multiple-cursors"]
+	path = home/.vim/bundle/multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
