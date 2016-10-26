@@ -67,3 +67,6 @@
 [submodule "home/.vim/bundle/multiple-cursors"]
 	path = home/.vim/bundle/multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "home/.vim/bundle/vim-css3-syntax"]
+	path = home/.vim/bundle/vim-css3-syntax
+	url = https://github.com/hail2u/vim-css3-syntax.git
