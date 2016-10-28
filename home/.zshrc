@@ -61,6 +61,9 @@ if [ -f ~/frontend_aliases/.frontend_aliases ]; then
 	source ~/frontend_aliases/.frontend_aliases
 fi
 
+# but overwrite this one okc frontend alias
+alias okc="cd /Volumes/mgeraci/okgit/cupid/okcontent"
+
 # okc aliases
 if [ -f ~/.okcupid_aliases ]; then
 	source ~/.okcupid_aliases
