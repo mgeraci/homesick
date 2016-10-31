@@ -33,8 +33,6 @@ alias irssi="nocorrect irssi"
 alias meteor="nocorrect meteor"
 alias glue="nocorrect glue"
 
-alias f="ack"
-
 # rvm support
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
@@ -61,8 +59,9 @@ if [ -f ~/frontend_aliases/.frontend_aliases ]; then
 	source ~/frontend_aliases/.frontend_aliases
 fi
 
-# but overwrite this one okc frontend alias
+# but overwrite a few okc frontend alias
 alias okc="cd /Volumes/mgeraci/okgit/cupid/okcontent"
+alias f="ack"
 
 # okc aliases
 if [ -f ~/.okcupid_aliases ]; then
