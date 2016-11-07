@@ -304,7 +304,7 @@ au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2 set ft=jinja
 " pub
 let fullpath = getcwd() . bufname("%")
 if match(fullpath, "okcontent") != -1
-	autocmd BufNewFile,BufRead *.email,*.html,*.pub,*.lib,*.dict set filetype=pub
+	autocmd BufNewFile,BufRead *.email,*.html,*.pub,*.lib,*.dict,*.component,*.conf set filetype=pub
 endif
 
 " arduino
