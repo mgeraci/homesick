@@ -176,7 +176,6 @@ imap <F9> <nop>
 imap <F10> <nop>
 imap <F11> <nop>
 
-map <leader>g  :Gstatus<cr>
 map <leader>n  :NERDTreeToggle<cr>
 map <leader>nf :NERDTreeFind<cr>
 map <leader>p  :set paste<cr>
