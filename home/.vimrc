@@ -176,7 +176,6 @@ imap <F9> <nop>
 imap <F10> <nop>
 imap <F11> <nop>
 
-map <leader>g  :Gstatus<cr>
 map <leader>n  :NERDTreeToggle<cr>
 map <leader>nf :NERDTreeFind<cr>
 map <leader>p  :set paste<cr>
@@ -276,6 +275,18 @@ vmap <C-U> ]egv
 vmap <C-I> [egv
 
 
+""""""""""""""""
+" Multi-Cursor "
+""""""""""""""""
+
+let g:multi_cursor_use_default_mapping=0
+
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-m>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+
 """""""""""""""""""""""
 " Syntax highlighting "
 """""""""""""""""""""""
@@ -292,7 +303,7 @@ au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2 set ft=jinja
 " pub
 let fullpath = getcwd() . bufname("%")
 if match(fullpath, "okcontent") != -1
-	autocmd BufNewFile,BufRead *.email,*.html,*.pub,*.lib,*.dict set filetype=pub
+	autocmd BufNewFile,BufRead *.email,*.html,*.pub,*.lib,*.dict,*.component,*.conf set filetype=pub
 endif
 
 " arduino
