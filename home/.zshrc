@@ -44,7 +44,10 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
 fi
 
 # path
-export PATH=/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin:/usr/local/sbin:/Users/mgeraci/.bin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/mgeraci/.rvm/bin:/Users/mgeraci/local/bin
+export PATH="/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin"
+PATH="$PATH:/usr/local/sbin:$HOME/.bin:$HOME/bin:/usr/local/share/npm/bin"
+PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
+PATH="$PATH:$HOME/.rvm/bin:$HOME/local/bin"
 
 # nvm (must be after path declaration, as nvm adds itself to the path)
 export NVM_DIR="$HOME/.nvm"
