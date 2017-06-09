@@ -119,6 +119,19 @@ let g:airline_powerline_fonts=1
 " show the status line, even when you only have one split open
 set laststatus=2
 
+" customization instructions:
+" https://github.com/vim-airline/vim-airline/blob/master/doc/airline.txt
+
+" remove some sections that I don't use
+let g:airline_section_b='' "(hunks, branch)
+let g:airline_section_y='' "(fileencoding, fileformat)
+let g:airline_section_error='' "(ycm_error_count, syntastic, eclim)
+let g:airline_section_warning='' "(ycm_warning_count, whitespace)
+
+" customize some of the fancy characters
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.maxlinenr = ''
+
 
 """"""""
 " Tabs "
