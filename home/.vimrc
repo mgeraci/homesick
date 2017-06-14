@@ -129,6 +129,7 @@ let g:airline_section_error='' "(ycm_error_count, syntastic, eclim)
 let g:airline_section_warning='' "(ycm_warning_count, whitespace)
 
 " customize some of the fancy characters
+let g:airline_symbols = {}
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
 
