@@ -210,13 +210,13 @@ map <C-C> <Leader>ci
 " add spaces after comment
 let g:NERDSpaceDelims = 1
 
-" upper/lower word
-nmap <leader>u mQviwU`Q
-nmap <leader>l mQviwu`Q
-
 " upper/lower first char of word
-nmap <leader>U mQgewvU`Q
-nmap <leader>L mQgewvu`Q
+nmap <leader>u mQgewvU`Q
+nmap <leader>l mQgewvu`Q
+
+" upper/lower word
+nmap <leader>U mQviwU`Q
+nmap <leader>L mQviwu`Q
 
 
 """""""""""""""""""
