@@ -67,3 +67,6 @@
 [submodule "home/.vim/bundle/multiple-cursors"]
 	path = home/.vim/bundle/multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "home/.vim/bundle/vim-sleuth"]
+	path = home/.vim/bundle/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git

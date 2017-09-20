@@ -138,20 +138,23 @@ let g:airline_symbols.maxlinenr = ''
 " Tabs "
 """"""""
 
+" I switched to using tpope's vim-sleuth for auto-defining tab/space settings
+" based on the file. but here's what I used to do:
+"
 " use tabs, display as 2 columns. a good overview of these settings:
 " http://tedlogan.com/techblog3.html
-
+"
 " tab size
-:set tabstop=2
-
+" :set tabstop=2
+"
 " help backspace/delete figure out which spaces are tabs
-:set softtabstop=2
-
+" :set softtabstop=2
+"
 " indent/outdent size
-:set shiftwidth=2
-
+" :set shiftwidth=2
+"
 " do not convert tabs to spaces
-:set noexpandtab
+" :set noexpandtab
 
 
 """""""""""""
