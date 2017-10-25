@@ -143,10 +143,10 @@ let g:airline_symbols.maxlinenr = ''
 "
 " use tabs, display as 2 columns. a good overview of these settings:
 " http://tedlogan.com/techblog3.html
-"
+
 " tab size
-" :set tabstop=2
-"
+:set tabstop=2
+
 " help backspace/delete figure out which spaces are tabs
 " :set softtabstop=2
 "
