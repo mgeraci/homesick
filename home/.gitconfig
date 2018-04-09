@@ -13,6 +13,7 @@
   preloadindex = true
   quotepath = false
   mergeoptions = --no-edit
+  excludesfile = ~/.gitignore
 
 [merge]
   tool = opendiff
