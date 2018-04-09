@@ -5,3 +5,7 @@ home/.vim/tmp/backup/**/*
 home/.vim/tmp/swp/**/*
 home/.vim/tmp/undo/**/*
 .DS_Store
+.AppleDouble
+.swp
+._*
+*.nfs*
