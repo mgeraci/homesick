@@ -87,11 +87,11 @@ shopt -s cdable_vars # set the bash option so that no '$' is required when using
 
 
 # Git completion ---------------------------------------------------
-if [ -f ~/.git-completion.bash ]; then
-	source ~/.git-completion.bash
+if [ -f ~/.bin/git-completion.bash ]; then
+	source ~/.bin/git-completion.bash
+    __git_complete g __git_main
 fi
 
-__git_complete g __git_main
 
 
 # Other aliases ----------------------------------------------------
