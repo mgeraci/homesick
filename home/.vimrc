@@ -254,7 +254,7 @@ set wildignore+=*.o,*.class,*.rbc,*.pyc
 set wildignore+=.git,.svn,.hg
 
 " Ignore temp/cached files
-set wildignore+=*.swp,*.un~,vendor/gems/*,*/tmp/cache/*,CACHE/*,*/CACHE/*
+set wildignore+=*/.swp,*.swp,*.un~,vendor/gems/*,*/tmp/cache/*,CACHE/*,*/CACHE/*
 set wildignore+=*/.tmp/*,.happypack/*,.happypack,*.happypack/*
 
 " Ignore node modules

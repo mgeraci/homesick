@@ -64,6 +64,7 @@ fi
 
 # but overwrite a few okc frontend alias
 alias okc="cd /Volumes/mgeraci/okgit/cupid/okcontent"
+alias oka="cd /Volumes/mgeraci/okapi/"
 alias f="ack"
 
 # okc aliases
