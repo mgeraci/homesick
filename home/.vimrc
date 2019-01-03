@@ -109,14 +109,6 @@ colorscheme ir_black
 "set guifont=Droid_Sans_Mono_for_Powerline:h13
 
 
-""""""""""""
-" NerdTree "
-""""""""""""
-
-" explicity set the nerdtree delimiter to a non-breaking space
-let g:NERDTreeNodeDelimiter = "\u00a0"
-
-
 """""""""""
 " Airline "
 """""""""""
