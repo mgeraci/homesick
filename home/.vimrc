@@ -203,7 +203,7 @@ map <leader>ct :checktime<cr>
 " copy to system pasteboard (extra cr dismisses the 'enter to continue')
 map <leader>c  :w !pbcopy<cr><cr>
 
-" leader-l toggles 80-column highlight
+" leader-b toggles 80-column highlight
 :highlight ColorColumn ctermbg=1
 noremap <leader>b :execute "set colorcolumn=".(&colorcolumn != 80 ? 80 : 0)<cr>
 
