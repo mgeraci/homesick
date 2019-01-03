@@ -146,3 +146,13 @@ fi
 if [ -f /home/u1/bin/ssh-magic ]; then
 	source /home/u1/bin/ssh-magic
 fi
+
+homeshick () {
+    if [ "$1" = "cd" ] && [ -n "$2" ]; then
+        # We want replicate cd behavior, so don't use cd ... ||
+        # shellcheck disable=SC2164
+       cd "$HOME/.homesick/repos/$2"
+   else
+        "${HOMESHICK_DIR:-$HOME/.homesick/repos/homeshick}/bin/homeshick" "$@"
+   fi
+}
