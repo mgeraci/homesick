@@ -20,3 +20,5 @@
 --ignore-dir=mobile_web
 --ignore-dir=flat
 --ignore-dir=js/mobile_app/ads/
+--ignore-dir=.happypack
+--ignore-dir=.tmp

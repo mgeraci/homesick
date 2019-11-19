@@ -72,6 +72,11 @@ if [ -f ~/.okcupid_aliases ]; then
 	source ~/.okcupid_aliases
 fi
 
+# load a computer-specific file, if present
+if [ -f ~/.zshrc.local ]; then
+	source ~/.zshrc.local
+fi
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export PATH="$HOME/.yarn/bin:$PATH"
