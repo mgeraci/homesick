@@ -105,7 +105,7 @@ alias rm="rm -i"
 # Misc
 alias g='git'
 alias bd="git diff --name-status master... | sort"
-alias f='find . -iname'
+alias f='git grep'
 alias ducks='du -cks * | sort -rn | head -11' # Lists folders and files sizes in the current folder
 alias m='more'
 alias df='df -h'

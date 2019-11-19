@@ -59,6 +59,11 @@
   pl = pull
 
   staging = push staging develop:master
+  g = grep --break --heading --line-number
 
 [color]
   ui = true
+[pager]
+  branch = false
+[grep]
+  lineNumber = true

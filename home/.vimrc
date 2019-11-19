@@ -114,7 +114,7 @@ colorscheme ir_black
 """"""""""""
 
 " explicity set the nerdtree delimiter to a non-breaking space
-let g:NERDTreeNodeDelimiter = "\u00a0"
+"let g:NERDTreeNodeDelimiter = "\u00a0"
 
 
 """""""""""
