@@ -141,6 +141,9 @@ let g:airline_symbols = {}
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
 
+" disable this particular airline extension, which was erroring out on start
+let g:airline#extensions#vista#enabled = 0
+
 
 """"""""
 " Tabs "
