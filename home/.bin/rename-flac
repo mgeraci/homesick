@@ -61,12 +61,16 @@ const getTargetFolder = () => {
   return dir;
 };
 
+const escapeFilename = (filename) => {
+  return filename.replace("'", "\\'");
+};
+
 const getFilenameFromFlac = (inputFile) => {
   const res = {};
 
   Object.keys(tags).forEach((key) => {
     const tagName = tags[key];
-    const tag = execSync(`metaflac --show-tag=${tagName} ${inputFile}`)
+    const tag = execSync(`metaflac --show-tag=${tagName} ${escapeFilename(inputFile)}`)
       .toString()
       .trim()
       .replace(/^.+=/, '');
@@ -87,8 +91,8 @@ const renameFiles = (dir, files) => {
   files.forEach((fileTuple) => {
     const cmd = [
       'mv',
-      prepFilenameForCommand(dir, fileTuple[0]),
-      prepFilenameForCommand(dir, fileTuple[1]),
+      prepFilenameForCommand(dir, escapeFilename(fileTuple[0])),
+      prepFilenameForCommand(dir, escapeFilename(fileTuple[1])),
     ].join(' ');
 
     execSync(cmd);
