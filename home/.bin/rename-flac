@@ -62,7 +62,10 @@ const getTargetFolder = () => {
 };
 
 const escapeFilename = (filename) => {
-  return filename.replace("'", "\\'");
+  return filename
+    .replace("'", "\\'")
+    .replace("(", "\(")
+    .replace(")", "\)");
 };
 
 const getFilenameFromFlac = (inputFile) => {
@@ -102,6 +105,14 @@ const renameFiles = (dir, files) => {
   process.exit(0);
 };
 
+const removeArtwork = (dir) => {
+  console.log('\nRemoving artwork...');
+
+  const file = prepFilenameForCommand(dir, '*.flac');
+
+  execSync(`metaflac --remove --block-type=PICTURE --dont-use-padding ${file}`);
+};
+
 
 // script
 // ----------------------------------------------------------------------------
@@ -129,8 +140,9 @@ const rl = readline.createInterface({
 console.log("\nHere are the proposed file names:");
 console.log(renameStorage.map((item) => item[1]));
 
-rl.question("\nWould you like to rename them? [y/n] ", (answer) => {
+rl.question("\nWould you like to rename them? This will also remove any embedded artwork. [y/n] ", (answer) => {
   if (answers.has(answer)) {
+    removeArtwork(dir);
     renameFiles(dir, renameStorage);
   } else {
     console.log("No action taken.");
