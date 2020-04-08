@@ -17,7 +17,7 @@ const tags = {
   title: 'TITLE',
 };
 
-const answers = new Set([
+const validAnswers = new Set([
   'y',
   'yes',
   'Yes',
@@ -51,7 +51,7 @@ const getTargetFolder = () => {
     ? userDir
     : `${scriptDir}${userDir}`;
 
-  console.log(`Looking for flac files in ${dir}`);
+  console.log(`Looking for flac files in ${dir}/`);
 
   if (!existsSync(dir)) {
     console.error('Error: that directory does not exist.');
@@ -63,9 +63,10 @@ const getTargetFolder = () => {
 
 const escapeFilename = (filename) => {
   return filename
-    .replace("'", "\\'")
-    .replace("(", "\(")
-    .replace(")", "\)");
+    .replace(/ /g, "\\ ")
+    .replace(/'/g, "\\'")
+    .replace(/\(/g, "\\(")
+    .replace(/\)/g, "\\)");
 };
 
 const getFilenameFromFlac = (inputFile) => {
@@ -73,7 +74,7 @@ const getFilenameFromFlac = (inputFile) => {
 
   Object.keys(tags).forEach((key) => {
     const tagName = tags[key];
-    const tag = execSync(`metaflac --show-tag=${tagName} ${escapeFilename(inputFile)}`)
+    const tag = execSync(`metaflac --show-tag=${tagName} ${inputFile}`)
       .toString()
       .trim()
       .replace(/^.+=/, '');
@@ -84,18 +85,14 @@ const getFilenameFromFlac = (inputFile) => {
   return `${res.artist} - ${res.year} - ${res.album} - ${res.trackNumber} - ${res.title}.flac`;
 };
 
-const prepFilenameForCommand = (dir, file) => {
-  return `${dir}/${file}`.replace(/ /g, "\\ ");
-};
-
 const renameFiles = (dir, files) => {
-  console.log('\nRenaming...');
+  console.log('Renaming...');
 
   files.forEach((fileTuple) => {
     const cmd = [
       'mv',
-      prepFilenameForCommand(dir, escapeFilename(fileTuple[0])),
-      prepFilenameForCommand(dir, escapeFilename(fileTuple[1])),
+      escapeFilename(`${dir}/${fileTuple[0]}`),
+      escapeFilename(`${dir}/${fileTuple[1]}`),
     ].join(' ');
 
     execSync(cmd);
@@ -108,9 +105,15 @@ const renameFiles = (dir, files) => {
 const removeArtwork = (dir) => {
   console.log('\nRemoving artwork...');
 
-  const file = prepFilenameForCommand(dir, '*.flac');
-
+  const file = escapeFilename(`${dir}/*.flac`);
   execSync(`metaflac --remove --block-type=PICTURE --dont-use-padding ${file}`);
+};
+
+const removeAlbumArtist = (dir) => {
+  console.log('Removing album artist...');
+
+  const file = escapeFilename(`${dir}/*.flac`);
+  execSync(`metaflac --remove-tag=ALBUMARTIST ${file}`);
 };
 
 
@@ -125,10 +128,7 @@ const files = readdirSync(dir)
   .filter((file) => file.indexOf('.flac') > 0);
 
 files.forEach((file) => {
-  const preparedFile = `${dir}/${file}`.replace(/ /g, "\\ ");
-  const newName = getFilenameFromFlac(
-    prepFilenameForCommand(dir, file)
-  );
+  const newName = getFilenameFromFlac(escapeFilename(`${dir}/${file}`));
   renameStorage.push([file, newName])
 });
 
@@ -140,9 +140,10 @@ const rl = readline.createInterface({
 console.log("\nHere are the proposed file names:");
 console.log(renameStorage.map((item) => item[1]));
 
-rl.question("\nWould you like to rename them? This will also remove any embedded artwork. [y/n] ", (answer) => {
-  if (answers.has(answer)) {
+rl.question("\nWould you like to rename them? This will also remove any embedded artwork and album artist tags. [y/n] ", (answer) => {
+  if (validAnswers.has(answer)) {
     removeArtwork(dir);
+    removeAlbumArtist(dir);
     renameFiles(dir, renameStorage);
   } else {
     console.log("No action taken.");
