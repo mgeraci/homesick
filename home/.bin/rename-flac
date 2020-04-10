@@ -106,14 +106,14 @@ const removeArtwork = (dir) => {
   console.log('\nRemoving artwork...');
 
   const file = escapeFilename(`${dir}/*.flac`);
-  execSync(`metaflac --remove --block-type=PICTURE --dont-use-padding ${file}`);
+  execSync(`metaflac --preserve-modtime --remove --block-type=PICTURE --dont-use-padding ${file}`);
 };
 
 const removeAlbumArtist = (dir) => {
   console.log('Removing album artist...');
 
   const file = escapeFilename(`${dir}/*.flac`);
-  execSync(`metaflac --remove-tag=ALBUMARTIST ${file}`);
+  execSync(`metaflac --preserve-modtime --remove-tag=ALBUMARTIST ${file}`);
 };
 
 
