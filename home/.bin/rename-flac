@@ -127,6 +127,11 @@ const dir = getTargetFolder();
 const files = readdirSync(dir)
   .filter((file) => file.indexOf('.flac') > 0);
 
+if (!files || !files.length) {
+  console.error("No flac files found!");
+  process.exit(1);
+}
+
 files.forEach((file) => {
   const newName = getFilenameFromFlac(escapeFilename(`${dir}/${file}`));
   renameStorage.push([file, newName])
