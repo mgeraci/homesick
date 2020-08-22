@@ -64,7 +64,6 @@ const getTargetFolder = () => {
 const escapeFilename = (filename) => {
   return filename
     .replace(/ /g, "\\ ")
-    .replace(/&/g, "\\&")
     .replace(/'/g, "\\'")
     .replace(/&/g, "\\&")
     .replace(/\(/g, "\\(")
