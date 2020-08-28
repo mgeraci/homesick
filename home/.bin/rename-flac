@@ -49,7 +49,7 @@ const getTargetFolder = () => {
 
   const dir = userDir.indexOf("/") === 0
     ? userDir
-    : `${scriptDir}${userDir}`;
+    : `${process.cwd()}/${userDir}`;
 
   console.log(`Looking for flac files in ${dir}/`);
 
