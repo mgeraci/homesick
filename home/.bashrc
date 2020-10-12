@@ -120,7 +120,6 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/local/nod
 export PATH="/usr/local/git/bin:/usr/local/ruby/bin:$PATH"
 
 complete -C ~/bin/tablete -o default rake
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export PATH=$PATH:$HOME/local/bin
 export NODE_PATH="$HOME/local/lib/node_modules/"

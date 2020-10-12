@@ -9,22 +9,8 @@ if [ -d ~/bin ]; then
 	export PATH=:~/bin:$PATH
 fi
 
-# add .bin folder to the path, for scripts synced with homesick
-if [ -d ~/.bin ]; then
-	export PATH=:~/.bin:$PATH
-fi
-
 # Load in .bashrc -------------------------------------------------
 source ~/.bashrc
-
-# Git tab completion ----------------------------------------------
-source ~/.git-completion.bash
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# create a variable for my media server --------------------------
-# old address: Geraci-Media-2.geracim.members.mac.com'
-export media_box='vnc://mgeraci.bounceme.net'
 
 # Notes: ----------------------------------------------------------
 # When you start an interactive shell (log in, open terminal or iTerm in OS X,
