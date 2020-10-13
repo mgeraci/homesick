@@ -26,3 +26,4 @@ source ~/.bashrc
 # in this order:
 #     bashrc
 #     .bashrc
+export PATH="/usr/local/opt/openssl/bin:$PATH"

@@ -42,12 +42,20 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
 	export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
 	source /usr/local/bin/virtualenvwrapper.sh
 fi
+if [ -f /Users/mgeraci/Library/Python/2.7/bin/virtualenvwrapper.sh ]; then
+	export WORKON_HOME=$HOME/.virtualenvs
+	export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+	source /Users/mgeraci/Library/Python/2.7/bin/virtualenvwrapper.sh
+fi
+
 
 # path
 export PATH="/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin"
 PATH="$PATH:/usr/local/sbin:$HOME/.bin:$HOME/bin:/usr/local/share/npm/bin"
 PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
+PATH="$PATH:/Users/mgeraci/Library/Python/2.7/bin"
 PATH="$PATH:$HOME/.rvm/bin:$HOME/local/bin"
+export PATH="$HOME/.yarn/bin:$PATH"
 
 # nvm (must be after path declaration, as nvm adds itself to the path)
 export NVM_DIR="$HOME/.nvm"
@@ -56,6 +64,7 @@ export NVM_DIR="$HOME/.nvm"
 # okcupid settings
 alias dj="ssh mgeraci.dev.okcupid.com"
 alias okf="cd ~/Web/okfrontend"
+alias okb="cd ~/Web/okbackoffice"
 
 # okc frontend aliases
 if [ -f ~/frontend_aliases/.frontend_aliases ]; then
@@ -76,7 +85,3 @@ fi
 if [ -f ~/.zshrc.local ]; then
 	source ~/.zshrc.local
 fi
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-export PATH="$HOME/.yarn/bin:$PATH"
