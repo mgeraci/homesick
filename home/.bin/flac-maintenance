@@ -4,12 +4,6 @@ const readdirSync = require("fs").readdirSync;
 const lstatSync = require("fs").lstatSync;
 const execSync = require("child_process").execSync;
 
-const root = "/Volumes/Lossless/Lossless";
-const isDirectory = (source) => lstatSync(`${root}/${source}`).isDirectory();
-const foldersToIgnore = new Set([".DS_Store", ".sync"]);
-const isGoodFolder = (source) => !foldersToIgnore.has(source);
-const artists = readdirSync(root).filter(isDirectory).filter(isGoodFolder);
-
 const escapeFilename = (filename) => {
   return filename
     .replace(/ /g, "\\ ")
@@ -19,13 +13,29 @@ const escapeFilename = (filename) => {
     .replace(/\)/g, "\\)");
 };
 
+const getTimeBetween = (start, end) => {
+  const elapsedSeconds = Math.round(end / 1000 - start / 1000);
+  const minutes = Math.floor(elapsedSeconds / 60);
+  const seconds = elapsedSeconds - minutes * 60;
+
+  return `${minutes}m ${seconds}s`;
+};
+
+const root = "/Volumes/Lossless/Lossless";
+const isDirectory = (source) => lstatSync(`${root}/${source}`).isDirectory();
+const foldersToIgnore = new Set([".DS_Store", ".sync"]);
+const isGoodFolder = (source) => !foldersToIgnore.has(source);
+const artists = readdirSync(root).filter(isDirectory).filter(isGoodFolder);
+const startTime = new Date().getTime();
+
 console.log(`Found ${artists.length} artists.`);
 
 artists.forEach((artist, i) => {
   const files = escapeFilename(`${root}/${artist}/**/*.flac`);
   const progress = Math.floor((i / artists.length) * 100)
+  const time = getTimeBetween(startTime, new Date().getTime());
 
-  console.log(`${progress}%`, files);
+  console.log(`${time} (${progress}%): ${files}`);
   execSync(`metaflac --preserve-modtime --remove --block-type=PICTURE --dont-use-padding ${files}`);
   execSync(`metaflac --preserve-modtime --remove-tag=ALBUMARTIST ${files}`);
 });
