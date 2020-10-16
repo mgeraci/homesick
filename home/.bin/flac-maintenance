@@ -9,6 +9,8 @@ const escapeFilename = (filename) => {
     .replace(/ /g, "\\ ")
     .replace(/'/g, "\\'")
     .replace(/&/g, "\\&")
+    .replace(/;/g, "\\;")
+    .replace(/\./g, "\\.")
     .replace(/\$/g, "\\$")
     .replace(/\(/g, "\\(")
     .replace(/\)/g, "\\)");
@@ -24,7 +26,14 @@ const getTimeBetween = (start, end) => {
 
 const root = "/Volumes/Lossless/Lossless";
 const isDirectory = (source) => lstatSync(`${root}/${source}`).isDirectory();
-const foldersToIgnore = new Set([".DS_Store", ".sync"]);
+const foldersToIgnore = new Set([
+				".DS_Store",
+				".sync",
+
+				// folders without albums within
+				"Jonah Bloch-Johnson and Michael P. Geraci",
+				"Michael P. Geraci and Raymond Sohn",
+]);
 const isGoodFolder = (source) => !foldersToIgnore.has(source);
 const artists = readdirSync(root).filter(isDirectory).filter(isGoodFolder);
 const startTime = new Date().getTime();
