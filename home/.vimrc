@@ -345,6 +345,17 @@ au BufNewFile,BufRead *.scad set ft=c
 let g:jsx_ext_required = 0
 
 
+""""""""""""
+" Prettier "
+""""""""""""
+
+" let prettier run on files that have the `@format` header
+let g:prettier#autoformat = 1
+
+" let prettier run on files without the `@format` header
+let g:prettier#autoformat_require_pragma = 0
+
+
 """""""""""
 " Imports "
 """""""""""
