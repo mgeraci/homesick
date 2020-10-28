@@ -37,17 +37,7 @@ alias glue="nocorrect glue"
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
 # python virtualenv
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-	export WORKON_HOME=$HOME/.virtualenvs
-	export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
-	source /usr/local/bin/virtualenvwrapper.sh
-fi
-if [ -f /Users/mgeraci/Library/Python/2.7/bin/virtualenvwrapper.sh ]; then
-	export WORKON_HOME=$HOME/.virtualenvs
-	export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-	source /Users/mgeraci/Library/Python/2.7/bin/virtualenvwrapper.sh
-fi
-
+source /usr/local/bin/virtualenvwrapper.sh
 
 # path
 export PATH="/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin"
