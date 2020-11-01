@@ -36,9 +36,6 @@ alias glue="nocorrect glue"
 # rvm support
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
-# python virtualenv
-source /usr/local/bin/virtualenvwrapper.sh
-
 # path
 export PATH="/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin"
 PATH="$PATH:/usr/local/sbin:$HOME/.bin:$HOME/bin:/usr/local/share/npm/bin"
