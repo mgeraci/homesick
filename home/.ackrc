@@ -2,6 +2,9 @@
 --type-set=cjsx=.cjsx
 --type-set=coffee=.coffee
 
+## ditto, react
+--type-set=react=.js,.jsx
+
 # ditto, scss
 --type-set=scss=.scss
 --type-set=css=.css
