@@ -354,11 +354,3 @@ let g:prettier#autoformat = 1
 
 " let prettier run on files without the `@format` header
 let g:prettier#autoformat_require_pragma = 0
-
-
-"""""""""""
-" Imports "
-"""""""""""
-
-" load okcupid settings
-set rtp+=/home/u1/share/vim
