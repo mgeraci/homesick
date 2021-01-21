@@ -354,3 +354,6 @@ let g:prettier#autoformat = 1
 
 " let prettier run on files without the `@format` header
 let g:prettier#autoformat_require_pragma = 0
+
+" only run prettier in repos where a config file is found
+let g:prettier#autoformat_config_present = 1
