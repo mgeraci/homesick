@@ -26,3 +26,4 @@
 --ignore-dir=.happypack
 --ignore-dir=.tmp
 --ignore-dir=.sass-cache
+--ignore-dir=src/locales/

@@ -50,12 +50,14 @@
   d = diff
   a = add
   co = checkout
+  cob = checkout -b
   m = merge
   b = branch
   l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   f = fetch
   r = reset
   ps = push
+  pss = push -u origin HEAD
   pl = pull
 
   staging = push staging develop:master
