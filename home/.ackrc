@@ -3,7 +3,7 @@
 --type-set=coffee=.coffee
 
 ## ditto, react
---type-set=react=.js,.jsx
+--type-set=jsx=.jsx
 
 # ditto, scss
 --type-set=scss=.scss
@@ -16,8 +16,6 @@
 --pager=less -rSFX
 
 # ignore some dirs
-#-G \^\(\(\?\!min.js\)\.\)\*\$
-# ignore bower_components
 --ignore-dir=bower_components
 --ignore-dir=node_modules
 --ignore-dir=mobile_web
