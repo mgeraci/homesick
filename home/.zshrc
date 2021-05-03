@@ -19,7 +19,7 @@ alias lla="ls -la"
 
 # git shortcut for the lazy
 alias g="git"
-alias bd="git diff --name-status master... | sort"
+alias bd="git diff --name-status main... | sort"
 
 # newer, brewed version of vim
 alias vi="vim"
