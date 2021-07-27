@@ -49,7 +49,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # okcupid settings
-alias dj="ssh mgeraci.dev.okcupid.com"
+alias dj="ssh mgeraci.dev.ue1.aws.okcupid.com"
 alias okf="cd ~/Web/okfrontend"
 alias okb="cd ~/Web/okbackoffice"
 
