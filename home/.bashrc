@@ -142,8 +142,8 @@ if [ -f ~/.devjail_settings ]; then
 fi
 
 # okcupid ssh settings
-if [ -f /home/u1/bin/ssh-magic ]; then
-	source /home/u1/bin/ssh-magic
+if [ -f bin/ssh-magic ]; then
+	source bin/ssh-magic
 fi
 
 homeshick () {
@@ -155,3 +155,5 @@ homeshick () {
         "${HOMESHICK_DIR:-$HOME/.homesick/repos/homeshick}/bin/homeshick" "$@"
    fi
 }
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
