@@ -341,6 +341,9 @@ au BufNewFile,BufRead *.ino set ft=c
 au BufNewFile,BufRead *.scad set ft=c
 au BufNewFile,BufRead *.scad set ft=c
 
+" okcupid c++ template files
+au BufNewFile,BufRead *.T set ft=c
+
 " allow JSX highlighting in files with just a `.js` extension
 let g:jsx_ext_required = 0
 
