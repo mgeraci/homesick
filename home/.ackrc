@@ -25,4 +25,5 @@
 --ignore-dir=.tmp
 --ignore-dir=.sass-cache
 --ignore-dir=src/locales/
+--ignore-dir=src/types
 --ignore-dir=dist
