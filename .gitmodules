@@ -73,3 +73,6 @@
 [submodule "home/.vim/bundle/typescript-vim"]
 	path = home/.vim/bundle/typescript-vim
 	url = git@github.com:leafgarland/typescript-vim.git
+[submodule "home/.vim/bundle/coc"]
+	path = home/.vim/bundle/coc
+	url = git@github.com:neoclide/coc.nvim.git

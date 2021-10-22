@@ -360,3 +360,20 @@ let g:prettier#autoformat_require_pragma = 0
 
 " only run prettier in repos where a config file is found
 let g:prettier#autoformat_config_present = 1
+
+
+"""""""
+" Coc "
+"""""""
+
+let g:coc_global_extensions = ['coc-tsserver']
+
+" fixes
+nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>af  <Plug>(coc-fix-current)
+
+" navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
