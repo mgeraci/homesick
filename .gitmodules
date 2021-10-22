@@ -43,9 +43,6 @@
 [submodule "home/.vim/bundle/vim-jinja"]
 	path = home/.vim/bundle/vim-jinja
 	url = git@github.com:lepture/vim-jinja.git
-[submodule "home/.vim/bundle/vim-cjsx"]
-	path = home/.vim/bundle/vim-cjsx
-	url = git@github.com:mtscout6/vim-cjsx.git
 [submodule "home/.vim/bundle/pathogen"]
 	path = home/.vim/bundle/pathogen
 	url = git@github.com:tpope/vim-pathogen.git
@@ -55,9 +52,6 @@
 [submodule "home/.vim/bundle/vim-es6"]
 	path = home/.vim/bundle/vim-es6
 	url = git@github.com:isRuslan/vim-es6.git
-[submodule "home/.vim/bundle/vim-jsx"]
-	path = home/.vim/bundle/vim-jsx
-	url = git@github.com:mxw/vim-jsx.git
 [submodule "home/.vim/bundle/multiple-cursors"]
 	path = home/.vim/bundle/multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
@@ -73,3 +67,9 @@
 [submodule "home/.vim/bundle/vim-prettier"]
 	path = home/.vim/bundle/vim-prettier
 	url = git@github.com:prettier/vim-prettier.git
+[submodule "home/.vim/bundle/vim-jsx-pretty"]
+	path = home/.vim/bundle/vim-jsx-pretty
+	url = git@github.com:MaxMEllon/vim-jsx-pretty.git
+[submodule "home/.vim/bundle/typescript-vim"]
+	path = home/.vim/bundle/typescript-vim
+	url = git@github.com:leafgarland/typescript-vim.git
