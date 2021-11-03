@@ -174,11 +174,28 @@ let g:airline#extensions#vista#enabled = 0
 
 " highlight search
 set hlsearch
+hi Search ctermbg=LightYellow
+hi Search ctermfg=Black
+hi Search cterm=None
 
 " case for search: ignore the case, unless you have something capitalized in
 " your query
 set ignorecase
 set smartcase
+
+" Damian Conway's 'Die Blinkënmatchen': blink the background of a search term
+" when the cursor gets to it
+nnoremap <silent> n n:call HLNext(0.2)<cr>
+nnoremap <silent> N N:call HLNext(0.2)<cr>
+
+function! HLNext (blinktime)
+  let target_pat = '\c\%#'.@/
+  let ring = matchadd('ErrorMsg', target_pat, 101)
+  redraw
+  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+  call matchdelete(ring)
+  redraw
+endfunction
 
 
 """""""""""""
@@ -215,7 +232,6 @@ map <leader>ct :checktime<cr>
 map <leader>c  :w !pbcopy<cr><cr>
 
 " leader-b toggles 80-column highlight
-:highlight ColorColumn ctermbg=1
 noremap <leader>b :execute "set colorcolumn=".(&colorcolumn != 80 ? 80 : 0)<cr>
 
 " comment shortcut
@@ -368,6 +384,9 @@ let g:prettier#autoformat_config_present = 1
 
 let g:coc_global_extensions = ['coc-tsserver']
 
+" background of the floating documentation window
+:highlight CocFloating ctermbg=Black
+
 " fixes
 nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>af  <Plug>(coc-fix-current)
@@ -377,3 +396,39 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next
