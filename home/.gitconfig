@@ -54,7 +54,7 @@
   m = merge
   b = branch
   l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-  f = fetch
+  f = fetch --prune
   r = reset
   ps = push
   pss = push -u origin HEAD
