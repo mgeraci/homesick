@@ -9,6 +9,9 @@
 --type-set=scss=.scss
 --type-set=css=.css
 
+## ditto, typescript
+--type-set=tsx=.tsx
+
 # always color
 --color
 
@@ -27,3 +30,7 @@
 --ignore-dir=src/locales/
 --ignore-dir=src/types
 --ignore-dir=dist
+
+--ignore-file=is:tsconfig.tsbuildinfo
+--ignore-file=is:yarn.lock
+--ignore-file=is:.eslintcache
