@@ -63,6 +63,11 @@ alias okc="cd /Volumes/$USER/okgit/cupid/okcontent"
 alias oka="cd /Volumes/$USER/okapi/"
 alias f="ack"
 
+# yarn script completion
+if [ -f ~/.bin/yarn-completion.bash ]; then
+    . ~/.bin/yarn-completion.bash
+fi
+
 # okc aliases
 if [ -f ~/.okcupid_aliases ]; then
 	source ~/.okcupid_aliases
