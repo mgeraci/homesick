@@ -147,6 +147,11 @@ if [ -f bin/ssh-magic ]; then
 	source bin/ssh-magic
 fi
 
+# yarn script completion
+if [ -f ~/.bin/yarn-completion.bash ]; then
+    . ~/.bin/yarn-completion.bash
+fi
+
 homeshick () {
     if [ "$1" = "cd" ] && [ -n "$2" ]; then
         # We want replicate cd behavior, so don't use cd ... ||
