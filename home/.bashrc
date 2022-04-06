@@ -109,6 +109,7 @@ alias f='git grep'
 alias ducks='du -cks * | sort -rn | head -11' # Lists folders and files sizes in the current folder
 alias m='more'
 alias df='df -h'
+alias vi='vim'
 
 # Shows most used commands, cool script I got this from: http://lifehacker.com/software/how-to/turbocharge-your-terminal-274317.php
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -nr | head -20"
