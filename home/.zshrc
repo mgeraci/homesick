@@ -37,7 +37,7 @@ alias glue="nocorrect glue"
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
 # path
-export PATH="/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin"
+export PATH="/opt/homebrew/bin:/usr/local/git/bin:/usr/local/ruby/bin:/usr/local/bin"
 PATH="$PATH:/usr/local/sbin:$HOME/.bin:$HOME/bin:/usr/local/share/npm/bin"
 PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
 PATH="$PATH:/Users/mgeraci/Library/Python/2.7/bin"
