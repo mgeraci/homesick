@@ -1,16 +1,11 @@
-# add coffeescript support
+# file type support
 --type-set=cjsx=.cjsx
 --type-set=coffee=.coffee
-
-## ditto, react
 --type-set=jsx=.jsx
-
-# ditto, scss
 --type-set=scss=.scss
 --type-set=css=.css
-
-## ditto, typescript
 --type-set=tsx=.tsx
+--type-set=svg=.svg
 
 # always color
 --color
