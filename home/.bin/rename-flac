@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-const execSync = require("child_process").execSync;
-const existsSync = require("fs").existsSync;
-const readdirSync = require("fs").readdirSync;
-const readline = require("readline");
+const execSync = require('child_process').execSync;
+const existsSync = require('fs').existsSync;
+const readdirSync = require('fs').readdirSync;
+const readline = require('readline');
+const path = require('path');
 
 
 // constants
@@ -39,7 +40,6 @@ const checkForMetaflac = () => {
 };
 
 const getTargetFolder = () => {
-  const scriptDir = process.argv[1].replace(/[^\/]+$/, '');
   const userDir = process.argv[2];
 
   if (!userDir) {
@@ -92,7 +92,7 @@ const getFilenameFromFlac = (inputFile) => {
 };
 
 const renameFiles = (dir, files) => {
-  console.log('Renaming...');
+  console.log('Renaming files...');
 
   files.forEach((fileTuple) => {
     const cmd = [
@@ -120,6 +120,19 @@ const removeAlbumArtist = (dir) => {
 
   const file = escapeFilename(`${dir}/*.flac`);
   execSync(`metaflac --preserve-modtime --remove-tag=ALBUMARTIST ${file}`);
+};
+
+const renameAlbumArt = (dir) => {
+  const art = readdirSync(dir).find((file) => file.startsWith('cover'));
+
+  if (!art) {
+    return;
+  }
+
+  console.log('Renaming album art...');
+  const source = escapeFilename(path.join(dir, art));
+  const target = escapeFilename(path.join(dir, art.replace('cover', 'folder')));
+  execSync(`mv ${source} ${target}`);
 };
 
 
@@ -156,6 +169,7 @@ rl.question("\nWould you like to rename them? This will also remove any embedded
     removeArtwork(dir);
     removeAlbumArtist(dir);
     renameFiles(dir, renameStorage);
+    renameAlbumArt(dir);
   } else {
     console.log("No action taken.");
   }
