@@ -168,8 +168,8 @@ rl.question("\nWould you like to rename them? This will also remove any embedded
   if (validAnswers.has(answer)) {
     removeArtwork(dir);
     removeAlbumArtist(dir);
-    renameFiles(dir, renameStorage);
     renameAlbumArt(dir);
+    renameFiles(dir, renameStorage);
   } else {
     console.log("No action taken.");
   }
