@@ -33,7 +33,7 @@ git_prompt_info() {
 
 # only run the git prompt info function if the current path does not match
 # okcontent
-awk_result=$(echo $PWD | awk '{print match($1, "Volumes/mgeraci")}')
+awk_result=$(echo $PWD | awk '{print match($1, "/Users/mgeraci/web/dj")}')
 if [ "$awk_result" -eq 0 ] ; then
 	git_prompt_info
 fi
