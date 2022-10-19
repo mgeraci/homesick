@@ -3,6 +3,7 @@
 const execSync = require('child_process').execSync;
 const existsSync = require('fs').existsSync;
 const readdirSync = require('fs').readdirSync;
+const statSync = require('fs').statSync;
 const readline = require('readline');
 const path = require('path');
 
@@ -23,6 +24,12 @@ const validAnswers = new Set([
   'yes',
   'Yes',
   'YES',
+  'sure',
+  'Sure',
+  'SURE',
+  'ok',
+  'Ok',
+  'OK',
 ]);
 
 
@@ -35,6 +42,16 @@ const checkForMetaflac = () => {
   }
   catch(err) {
     console.log("This script requires the `metaflac` package; install it with `brew install flac`.");
+    process.exit(1);
+  }
+};
+
+const checkForImagemagick = () => {
+  try {
+    execSync("which magick");
+  }
+  catch(err) {
+    console.log("This script requires the `magick` package; install it with `brew install imagemagick`.");
     process.exit(1);
   }
 };
@@ -108,11 +125,23 @@ const renameFiles = (dir, files) => {
   process.exit(0);
 };
 
-const removeArtwork = (dir) => {
-  console.log('\nRemoving artwork...');
+const setArtwork = (dir) => {
+  console.log('\nSetting artwork...');
 
   const file = escapeFilename(`${dir}/*.flac`);
-  execSync(`metaflac --preserve-modtime --remove --block-type=PICTURE --dont-use-padding ${file}`);
+  const escapedDir = escapeFilename(dir);
+
+  execSync(`magick ${escapedDir}/folder.jpg -resize 1024x1024\\\> ${escapedDir}/folder.tmp.jpg`);
+
+  const stats = statSync(`${dir}/folder.tmp.jpg`);
+  const sizeInKb = Math.round(stats.size / 1024);
+
+  if (sizeInKb > 320) {
+    execSync(`magick convert ${escapedDir}/folder.tmp.jpg -define jpeg:extent=320kb ${escapedDir}/folder.tmp.jpg`);
+  }
+
+  execSync(`metaflac --preserve-modtime --import-picture-from=${escapedDir}/folder.tmp.jpg ${file}`);
+  execSync(`rm ${escapedDir}/folder.tmp.jpg`);
 };
 
 const removeAlbumArtist = (dir) => {
@@ -140,6 +169,7 @@ const renameAlbumArt = (dir) => {
 // ----------------------------------------------------------------------------
 
 checkForMetaflac();
+checkForImagemagick();
 
 const renameStorage = [];
 const dir = getTargetFolder();
@@ -166,9 +196,9 @@ console.log(renameStorage.map((item) => item[1]));
 
 rl.question("\nWould you like to rename them? This will also remove any embedded artwork and album artist tags. [y/n] ", (answer) => {
   if (validAnswers.has(answer)) {
-    removeArtwork(dir);
-    removeAlbumArtist(dir);
     renameAlbumArt(dir);
+    setArtwork(dir);
+    removeAlbumArtist(dir);
     renameFiles(dir, renameStorage);
   } else {
     console.log("No action taken.");
