@@ -4,7 +4,7 @@ const execSync = require('child_process').execSync;
 const statSync = require('fs').statSync;
 const writeFileSync = require('fs').writeFileSync;
 
-const THREE_MONTHS_IN_MS = 3 * 30 * 24 * 60 * 60 * 1000;
+const ONE_YEAR_IN_MS = 12 * 30 * 24 * 60 * 60 * 1000;
 
 const albums = execSync('find /Volumes/Lossless/Lossless -type d -name \'[0-9][0-9][0-9][0-9] - *\'')
   .toString()
@@ -17,7 +17,7 @@ const albumsToInclude = [];
 const songsToInclude = [];
 
 albums.forEach((album) => {
-  if (statSync(album).birthtimeMs > Date.now() - THREE_MONTHS_IN_MS) {
+  if (statSync(album).birthtimeMs > Date.now() - ONE_YEAR_IN_MS) {
     albumsToInclude.push(album);
   }
 });
