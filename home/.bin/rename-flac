@@ -99,8 +99,8 @@ const getFilenameFromFlac = (inputFile) => {
     const tag = execSync(`metaflac --show-tag=${tagName} ${inputFile}`)
       .toString()
       .trim()
-      .replace(/^.+=/, '') // remove the tag format,  ARTICST=Deerhoof
-      .replace('/', '-'); // remove invalid filename characters
+      .replace(/^.+=/, '') // remove the tag format, ARTIST=Deerhoof
+      .replace(/\//g, '-'); // remove invalid filename characters
 
     res[key] = tag;
   });
@@ -126,7 +126,7 @@ const renameFiles = (dir, files) => {
 };
 
 const setArtwork = (dir) => {
-  console.log('\nSetting artwork...');
+  console.log('Setting artwork...');
 
   const file = escapeFilename(`${dir}/*.flac`);
   const escapedDir = escapeFilename(dir);
