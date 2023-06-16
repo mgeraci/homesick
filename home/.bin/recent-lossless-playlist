@@ -89,7 +89,8 @@ albumsToInclude.forEach((albumPath, i) => {
 
 	const artist = getTagFromFile("ARTIST", firstSongPath);
 	const album = getTagFromFile("ALBUM", firstSongPath);
-	const title = `${i + 1} - ${artist} - ${album}`;
+	const index = `${i + 1}`.padStart(`${albumsToInclude.length}`.length, "0");
+	const title = `${index} - ${artist} - ${album}`;
 
 	playlistTitles.push(title);
 	playlists.push(songs);
