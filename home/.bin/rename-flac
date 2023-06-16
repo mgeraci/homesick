@@ -99,7 +99,7 @@ const getFilenameFromFlac = (inputFile) => {
     const tag = execSync(`metaflac --show-tag=${tagName} ${inputFile}`)
       .toString()
       .trim()
-      .replace(/^.+=/, '') // remove the tag format,  ARTICST=Deerhoof
+      .replace(/^.+=/, '') // remove the tag format,  ARTIST=Deerhoof
       .replace('/', '-'); // remove invalid filename characters
 
     res[key] = tag;

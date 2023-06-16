@@ -4,7 +4,63 @@ const execSync = require('child_process').execSync;
 const statSync = require('fs').statSync;
 const writeFileSync = require('fs').writeFileSync;
 
+
+// constants
+// ----------------------------------------------------------------------------
+
 const ONE_YEAR_IN_MS = 12 * 30 * 24 * 60 * 60 * 1000;
+const PLAYLIST_FOLDER = "_recent_playlists";
+const PLAYLIST_PATH = `/Volumes/Lossless/Lossless/${PLAYLIST_FOLDER}`;
+
+
+// helpers
+// ----------------------------------------------------------------------------
+
+const checkForMetaflac = () => {
+  try {
+    execSync("which metaflac");
+  }
+  catch(err) {
+    console.log("This script requires the `metaflac` package; install it with `brew install flac`.");
+    process.exit(1);
+  }
+};
+
+const escapeFilename = (filename) => {
+  return filename
+    .replace(/ /g, "\\ ")
+    .replace(/'/g, "\\'")
+    .replace(/&/g, "\\&")
+    .replace(/;/g, "\\;")
+    .replace(/\./g, "\\.")
+    .replace(/\$/g, "\\$")
+    .replace(/\(/g, "\\(")
+    .replace(/\)/g, "\\)")
+    .replace(/\|/g, "\\|");
+};
+
+const getTagFromFile = (tag, file) => {
+  return execSync(`metaflac --show-tag=${tag} ${file}`)
+      .toString()
+      .trim()
+      .replace(/^.+=/, '') // remove the tag format,  ARTIST=Deerhoof
+      .replace('/', '-'); // remove invalid filename characters
+};
+
+const getTrackNumberFromFilename = (filename) =>
+	filename.replace(/.+\d{4} - .+ - (\d+) - .+/, "$1")
+
+const sortByTrackNumber = (a, b) => {
+	const aNumber = parseInt(getTrackNumberFromFilename(a), 10);
+	const bNumber = parseInt(getTrackNumberFromFilename(b), 10);
+
+	return aNumber - bNumber;
+};
+
+// script
+// ----------------------------------------------------------------------------
+
+checkForMetaflac();
 
 const albums = execSync('find /Volumes/Lossless/Lossless -type d -name \'[0-9][0-9][0-9][0-9] - *\'')
   .toString()
@@ -14,7 +70,8 @@ const albums = execSync('find /Volumes/Lossless/Lossless -type d -name \'[0-9][0
 	.sort((a, b) => statSync(b).birthtimeMs - statSync(a).birthtimeMs);
 
 const albumsToInclude = [];
-const songsToInclude = [];
+const playlistTitles = [];
+const playlists = [];
 
 albums.forEach((album) => {
   if (statSync(album).birthtimeMs > Date.now() - ONE_YEAR_IN_MS) {
@@ -22,11 +79,25 @@ albums.forEach((album) => {
   }
 });
 
-albumsToInclude.forEach((album) => {
-  const songs = execSync(`find "${album}" -type f -name '*.flac'`).toString().trim().split('\n');
-  songsToInclude.push(songs[0]);
+albumsToInclude.forEach((albumPath, i) => {
+  const songs = execSync(`find "${albumPath}" -type f -name '*.flac'`)
+		.toString()
+		.trim()
+		.split('\n')
+		.sort(sortByTrackNumber);
+  const firstSongPath = escapeFilename(songs[0])
+
+	const artist = getTagFromFile("ARTIST", firstSongPath);
+	const album = getTagFromFile("ALBUM", firstSongPath);
+	const title = `${i + 1} - ${artist} - ${album}`;
+
+	playlistTitles.push(title);
+	playlists.push(songs);
 });
 
-execSync("rm -rf /Volumes/Lossless/Lossless/recent.m3u");
-execSync(`touch /Volumes/Lossless/Lossless/recent.m3u`);
-writeFileSync("/Volumes/Lossless/Lossless/recent.m3u", songsToInclude.join('\n'));
+execSync(`rm -rf ${PLAYLIST_PATH}`);
+execSync(`mkdir -p ${PLAYLIST_PATH}`);
+
+playlistTitles.forEach((title, i) => {
+	writeFileSync(`${PLAYLIST_PATH}/${title}.m3u`, playlists[i].join('\n'));
+});
