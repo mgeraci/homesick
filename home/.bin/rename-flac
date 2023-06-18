@@ -7,6 +7,9 @@ const statSync = require('fs').statSync;
 const readline = require('readline');
 const path = require('path');
 
+const checkForMetaFlac = require("./flac-helpers").checkForMetaFlac;
+const escapeFilename = require("./flac-helpers").escapeFilename;
+
 
 // constants
 // ----------------------------------------------------------------------------
@@ -35,16 +38,6 @@ const validAnswers = new Set([
 
 // helpers
 // ----------------------------------------------------------------------------
-
-const checkForMetaflac = () => {
-  try {
-    execSync("which metaflac");
-  }
-  catch(err) {
-    console.log("This script requires the `metaflac` package; install it with `brew install flac`.");
-    process.exit(1);
-  }
-};
 
 const checkForImagemagick = () => {
   try {
@@ -76,19 +69,6 @@ const getTargetFolder = () => {
   }
 
   return dir;
-};
-
-const escapeFilename = (filename) => {
-  return filename
-    .replace(/ /g, "\\ ")
-    .replace(/'/g, "\\'")
-    .replace(/&/g, "\\&")
-    .replace(/;/g, "\\;")
-    .replace(/\./g, "\\.")
-    .replace(/\$/g, "\\$")
-    .replace(/\(/g, "\\(")
-    .replace(/\)/g, "\\)")
-    .replace(/\|/g, "\\|");
 };
 
 const getFilenameFromFlac = (inputFile) => {

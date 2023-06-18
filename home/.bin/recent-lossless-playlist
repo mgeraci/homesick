@@ -4,6 +4,10 @@ const execSync = require('child_process').execSync;
 const statSync = require('fs').statSync;
 const writeFileSync = require('fs').writeFileSync;
 
+const checkForMetaFlac = require("./flac-helpers").checkForMetaFlac;
+const escapeFilename = require("./flac-helpers").escapeFilename;
+const getTagFromFile = require("./flac-helpers").getTagFromFile;
+
 
 // constants
 // ----------------------------------------------------------------------------
@@ -15,37 +19,6 @@ const PLAYLIST_PATH = `/Volumes/Lossless/Lossless/${PLAYLIST_FOLDER}`;
 
 // helpers
 // ----------------------------------------------------------------------------
-
-const checkForMetaflac = () => {
-  try {
-    execSync("which metaflac");
-  }
-  catch(err) {
-    console.log("This script requires the `metaflac` package; install it with `brew install flac`.");
-    process.exit(1);
-  }
-};
-
-const escapeFilename = (filename) => {
-  return filename
-    .replace(/ /g, "\\ ")
-    .replace(/'/g, "\\'")
-    .replace(/&/g, "\\&")
-    .replace(/;/g, "\\;")
-    .replace(/\./g, "\\.")
-    .replace(/\$/g, "\\$")
-    .replace(/\(/g, "\\(")
-    .replace(/\)/g, "\\)")
-    .replace(/\|/g, "\\|");
-};
-
-const getTagFromFile = (tag, file) => {
-  return execSync(`metaflac --show-tag=${tag} ${file}`)
-      .toString()
-      .trim()
-      .replace(/^.+=/, '') // remove the tag format,  ARTIST=Deerhoof
-      .replace('/', '-'); // remove invalid filename characters
-};
 
 const getTrackNumberFromFilename = (filename) =>
 	filename.replace(/.+\d{4} - .+ - (\d+) - .+/, "$1")
@@ -60,7 +33,7 @@ const sortByTrackNumber = (a, b) => {
 // script
 // ----------------------------------------------------------------------------
 
-checkForMetaflac();
+checkForMetaFlac();
 
 const albums = execSync('find /Volumes/Lossless/Lossless -type d -name \'[0-9][0-9][0-9][0-9] - *\'')
   .toString()
