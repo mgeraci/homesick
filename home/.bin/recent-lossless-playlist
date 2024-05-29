@@ -61,7 +61,8 @@ albumsToInclude.forEach((albumPath, i) => {
   const firstSongPath = escapeFilename(songs[0])
 
 	const artist = getTagFromFile("ARTIST", firstSongPath);
-	const album = getTagFromFile("ALBUM", firstSongPath);
+	const album = getTagFromFile("ALBUM", firstSongPath)
+				.replace(/\//g, "");
 	const index = `${i + 1}`.padStart(`${albumsToInclude.length}`.length, "0");
 	const title = `${index} - ${artist} - ${album}`;
 
