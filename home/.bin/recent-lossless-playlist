@@ -58,6 +58,11 @@ albumsToInclude.forEach((albumPath, i) => {
 		.trim()
 		.split('\n')
 		.sort(sortByTrackNumber);
+
+	if (songs.filter((song) => song != "").length == 0) {
+		return;
+	}
+
   const firstSongPath = escapeFilename(songs[0])
 
 	const artist = getTagFromFile("ARTIST", firstSongPath);
