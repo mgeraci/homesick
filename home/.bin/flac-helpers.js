@@ -16,6 +16,8 @@ const escapeFilename = (filename) => {
     .replace(/'/g, "\\'")
     .replace(/&/g, "\\&")
     .replace(/;/g, "\\;")
+    .replace(/\</g, "\-")
+    .replace(/\>/g, "\-")
     .replace(/\./g, "\\.")
     .replace(/\$/g, "\\$")
     .replace(/\(/g, "\\(")

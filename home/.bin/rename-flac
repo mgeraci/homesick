@@ -106,6 +106,7 @@ const renameFiles = (dir, files) => {
 };
 
 const setArtwork = (dir) => {
+<<<<<<< Updated upstream
   const art = readdirSync(dir).find((file) => file.startsWith('folder.'));
 
   if (!art) {
@@ -114,10 +115,19 @@ const setArtwork = (dir) => {
 
   console.log('Setting artwork...');
 
+=======
+>>>>>>> Stashed changes
   const file = escapeFilename(`${dir}/*.flac`);
   const escapedDir = escapeFilename(dir);
+  const artFile = `${escapedDir}/folder.jpg`;
 
-  execSync(`magick ${escapedDir}/folder.jpg -resize 1024x1024\\\> ${escapedDir}/folder.tmp.jpg`);
+  if (!existsSync(artFile)) {
+    console.log('No artwork found');
+    return;
+  }
+
+  console.log('Setting artwork...');
+  execSync(`magick ${artFile} -resize 1024x1024\\\> ${escapedDir}/folder.tmp.jpg`);
 
   const stats = statSync(`${dir}/folder.tmp.jpg`);
   const sizeInKb = Math.round(stats.size / 1024);
