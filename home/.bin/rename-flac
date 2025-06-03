@@ -106,7 +106,6 @@ const renameFiles = (dir, files) => {
 };
 
 const setArtwork = (dir) => {
-<<<<<<< Updated upstream
   const art = readdirSync(dir).find((file) => file.startsWith('folder.'));
 
   if (!art) {
@@ -115,8 +114,6 @@ const setArtwork = (dir) => {
 
   console.log('Setting artwork...');
 
-=======
->>>>>>> Stashed changes
   const file = escapeFilename(`${dir}/*.flac`);
   const escapedDir = escapeFilename(dir);
   const artFile = `${escapedDir}/folder.jpg`;
