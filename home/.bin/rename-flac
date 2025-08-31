@@ -114,26 +114,25 @@ const setArtwork = (dir) => {
 
   console.log('Setting artwork...');
 
-  const file = escapeFilename(`${dir}/*.flac`);
+  const musicFiles = escapeFilename(`${dir}/*.flac`);
   const escapedDir = escapeFilename(dir);
-  const artFile = `${escapedDir}/folder.jpg`;
+  const artFile = path.join(dir, art);
 
   if (!existsSync(artFile)) {
     console.log('No artwork found');
     return;
   }
 
-  console.log('Setting artwork...');
-  execSync(`magick ${artFile} -resize 1024x1024\\\> ${escapedDir}/folder.tmp.jpg`);
+  execSync(`magick ${escapeFilename(artFile)} -resize 1024x1024\\\> ${escapedDir}/folder.tmp.jpg`);
 
   const stats = statSync(`${dir}/folder.tmp.jpg`);
   const sizeInKb = Math.round(stats.size / 1024);
 
   if (sizeInKb > 320) {
-    execSync(`magick convert ${escapedDir}/folder.tmp.jpg -define jpeg:extent=320kb ${escapedDir}/folder.tmp.jpg`);
+    execSync(`magick ${escapedDir}/folder.tmp.jpg -define jpeg:extent=320kb ${escapedDir}/folder.tmp.jpg`);
   }
 
-  execSync(`metaflac --preserve-modtime --import-picture-from=${escapedDir}/folder.tmp.jpg ${file}`);
+  execSync(`metaflac --preserve-modtime --import-picture-from=${escapedDir}/folder.tmp.jpg ${musicFiles}`);
   execSync(`rm ${escapedDir}/folder.tmp.jpg`);
 };
 
@@ -148,16 +147,16 @@ const removeAlbumArtist = (dir) => {
 };
 
 const renameAlbumArt = (dir) => {
-  const art = readdirSync(dir).find((file) => file.startsWith('cover'));
+  const misnamedArt = readdirSync(dir).find((file) => file.startsWith('cover'));
+  const art = readdirSync(dir).find((file) => file.startsWith('folder'));
 
-  if (!art) {
-    console.log("No album art found!");
+  if (art) {
     return;
   }
 
   console.log('Renaming album art...');
-  const source = escapeFilename(path.join(dir, art));
-  const target = escapeFilename(path.join(dir, art.replace('cover', 'folder')));
+  const source = escapeFilename(path.join(dir, misnamedArt));
+  const target = escapeFilename(path.join(dir, misnamedArt.replace('cover', 'folder')));
   execSync(`mv ${source} ${target}`);
 };
 
