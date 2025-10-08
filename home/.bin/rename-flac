@@ -150,7 +150,7 @@ const renameAlbumArt = (dir) => {
   const misnamedArt = readdirSync(dir).find((file) => file.startsWith('cover'));
   const art = readdirSync(dir).find((file) => file.startsWith('folder'));
 
-  if (art) {
+  if (art || !misnamedArt) {
     return;
   }
 
