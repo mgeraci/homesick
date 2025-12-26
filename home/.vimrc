@@ -341,15 +341,6 @@ au Bufread,BufNewFile *.hamstache set filetype=haml
 " toffee files
 autocmd BufNewFile,BufRead *.toffee set filetype=toffee
 
-" jinja
-au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.j2 set ft=jinja
-
-" pub
-let fullpath = getcwd() . bufname("%")
-if match(fullpath, "okcontent") != -1
-	autocmd BufNewFile,BufRead *.email,*.html,*.pub,*.lib,*.dict,*.component,*.conf set filetype=pub
-endif
-
 " arduino
 au BufNewFile,BufRead *.ino set ft=c
 
