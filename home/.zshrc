@@ -77,3 +77,17 @@ fi
 if [ -f ~/.zshrc.local ]; then
 	source ~/.zshrc.local
 fi
+
+# Created by `pipx` on 2024-08-23 16:05:56
+export PATH="$PATH:/Users/mgeraci/.local/bin"
+
+analyze-loudness() {
+  if [ -z "$1" ]; then
+    echo "Usage: analyze-loudness <audiofile>"
+    return 1
+  fi
+
+  ffmpeg -hide_banner -i "$1" \
+    -af loudnorm=I=-16:TP=-1.5:LRA=11:print_format=summary \
+    -f null - 2>&1 | grep -E "Input Integrated|Input True Peak|Input LRA"
+}
